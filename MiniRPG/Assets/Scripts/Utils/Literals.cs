@@ -11,5 +11,7 @@
 /// </summary>
 public static class Literals
 {
-    public const string STR_PLAYER = "Player";
+    public const string INTRO_SPRITE = "IntroSprite";
+    public const string INTRO_STARTBTN = "StartBtn;";
+    public const string INTRO_STARTBTN_TEXT = "StartText";
 }
