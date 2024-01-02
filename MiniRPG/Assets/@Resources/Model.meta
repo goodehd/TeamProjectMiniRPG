@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:MiniRPG/Assets/Scripts/Core.meta
 guid: e6f319784aae2ea40a60ce5963332c5c
+========
+guid: d5eb12651b08645ddb255b10bbc022f8
+>>>>>>>> Develop1.0:MiniRPG/Assets/@Resources/Model.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
