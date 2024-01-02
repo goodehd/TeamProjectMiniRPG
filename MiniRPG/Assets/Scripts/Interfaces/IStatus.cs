@@ -3,8 +3,8 @@ public interface IStatus
 {
     #region Fields
 
-    float CurrentValue { get; set; }
-    float MaxValue { get; set; }
+    float CurrentValue { get; }
+    float MaxValue { get; }
 
     #endregion
     
@@ -17,6 +17,10 @@ public interface IStatus
     
     // Current Value - Amount = 최소치 (0)보다 아래로 내려갈 수 없음
     void SubValue(float amount);
+    
+    // Percentage 방식
+    void AddPercentageValue(float percentage);
+    void SubPercentageValue(float percentage);
     
     // Max Value와 Current Value의 Ratio(Percentage)
     float GetPercentage();

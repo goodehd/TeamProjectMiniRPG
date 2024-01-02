@@ -1,13 +1,16 @@
 
 using UnityEngine;
 
-[System.Serializable]
 public class HealthPoint : IStatus
 {
-    #region Properties
+    #region Fields
 
-    public float CurrentValue { get; set; }
-    public float MaxValue { get; set; }
+    [SerializeField] private float _currentValue;
+    [SerializeField] private float _maxValue;
+    
+    // Properties
+    public float CurrentValue => _currentValue;
+    public float MaxValue => _maxValue;
 
     #endregion
 
@@ -17,14 +20,14 @@ public class HealthPoint : IStatus
 
     public HealthPoint(float setValue)
     {
-        MaxValue = setValue;
-        CurrentValue = MaxValue;
+        _maxValue = setValue;
+        _currentValue = MaxValue;
     }
 
     public HealthPoint(float curValue, float maxValue)
     {
-        CurrentValue = curValue;
-        MaxValue = maxValue;
+        _currentValue = curValue;
+        _maxValue = maxValue;
     }
 
     #endregion
@@ -36,13 +39,27 @@ public class HealthPoint : IStatus
     public void AddValue(float amount)
     {
         // 현재 값에 amount를 추가 하되, 최대 값을 초과하지 않는다.
-        CurrentValue = Mathf.Min(CurrentValue + amount, MaxValue);
+        _currentValue = Mathf.Min(CurrentValue + amount, MaxValue);
     }
 
     public void SubValue(float amount)
     {
         // 현재 값에 amount를 차감 하되, 0보다 작아지지 않는다.
-        CurrentValue = Mathf.Max(CurrentValue - amount, 0f);
+        _currentValue = Mathf.Max(CurrentValue - amount, 0f);
+    }
+
+    public void AddPercentageValue(float percentage)
+    {
+        var addAmount = MaxValue * (percentage / 100f);
+
+        AddValue(addAmount);
+    }
+    
+    public void SubPercentageValue(float percentage)
+    {
+        var subAmount = MaxValue * (percentage / 100f);
+
+        SubValue(subAmount);
     }
 
     public float GetPercentage()
