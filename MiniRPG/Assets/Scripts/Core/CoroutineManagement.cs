@@ -26,7 +26,7 @@ public class CoroutineManagement : SingletonBehavior<CoroutineManagement>
     private readonly Dictionary<IEnumerator, CoroutineInfo> _coroutines =
         new Dictionary<IEnumerator, CoroutineInfo>();
     
-    // Exception Event => 예외에 대한 이벤트 등록을 꼭 해야됌.
+    // Exception Event => 예외에 대한 이벤트
     public event Action<Exception> OnCoroutineException;
 
     #endregion
@@ -49,6 +49,8 @@ public class CoroutineManagement : SingletonBehavior<CoroutineManagement>
         {
             OnCoroutineException -= HandleCoroutineException;
         }
+        
+        base.OnDestroy();
     }
 
     #endregion
@@ -92,6 +94,9 @@ public class CoroutineManagement : SingletonBehavior<CoroutineManagement>
     
     #region Getter
 
+    /// <summary>
+    /// # 실행되고 있는 코루틴들을 반환
+    /// </summary>
     public List<IEnumerator> GetRunningCoroutines()
     {
         return (from entry in _coroutines where entry.Value.State == CoroutineState.Running select entry.Key).ToList();

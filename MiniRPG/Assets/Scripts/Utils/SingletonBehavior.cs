@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SingletonBehavior<T> : SingletonBase where T : MonoBehaviour
 {
+    // Field Members
     private static T _instance;
 
 
