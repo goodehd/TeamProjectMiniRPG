@@ -17,9 +17,9 @@ namespace UI
         {
             if (_initialized) return false;
             _initialized = true;
-            // UI = Main.UI;
-            // Resource = Main.Resource;
-            // Sound = Main.Sound;
+            UI = Main.UI;
+            Resource = Main.Resource;
+            Sound = Main.Sound;
             return _initialized;
         }
 

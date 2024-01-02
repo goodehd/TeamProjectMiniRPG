@@ -39,13 +39,13 @@ public class Main : MonoBehaviour
 
     #region Properties
 
-    public static DataManager Data => _instance._data;
-    public static GameManager Game => _instance._game;
-    public static ItemManager Item => _instance._item;
-    public static ResourceManager Resource => _instance._resource;
-    public static ScenesManager Scenes => _instance._scenes;
-    public static SoundManager Sound => _instance._sound;
-    public static UIManager UI => _instance._ui;
+    public static DataManager Data => Instance._data;
+    public static GameManager Game => Instance._game;
+    public static ItemManager Item => Instance._item;
+    public static ResourceManager Resource => Instance._resource;
+    public static ScenesManager Scenes => Instance._scenes;
+    public static SoundManager Sound => Instance._sound;
+    public static UIManager UI => Instance._ui;
 
     #endregion
 }
