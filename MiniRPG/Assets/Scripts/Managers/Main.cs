@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Managers;
 using UnityEngine;
+using UnityEngine;
 
 public class Main : MonoBehaviour
 {
@@ -10,11 +11,11 @@ public class Main : MonoBehaviour
     private static Main _instance;
     private static bool _initialize;
 
-    private static Main Instance
+    public static Main Instance
     {
         get
         {
-            if (_initialize) return _instance;
+            if (_initialize) {return _instance;}
             _initialize = true;
             GameObject main = GameObject.Find("@Main");
             if (main != null) return _instance;
