@@ -11,5 +11,5 @@
 /// </summary>
 public static class Literals
 {
-    
+    public const string STR_PLAYER = "Player";
 }
