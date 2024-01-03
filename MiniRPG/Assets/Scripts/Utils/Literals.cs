@@ -47,4 +47,13 @@ public static class Literals
     public const float EXP_MAX = 999999999f;
 
     #endregion
+
+
+
+    #region Path
+
+    public const string CSV_PATH = "Assets/@Resources/Csv/";
+    public const string JSON_PATH = "Assets/@Resources/Json/";
+
+    #endregion
 }
