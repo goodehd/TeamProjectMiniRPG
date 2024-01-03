@@ -8,7 +8,7 @@ public interface ISingleAttribute
     float Value { get; }
     
     // Event
-    event Action<float> OnValueChanged;
+    // event Action<float> OnValueChanged;
 
     #endregion
 

@@ -14,7 +14,7 @@ public abstract class BaseStatus : IStatus
     public float MaxValue => _maxValue;
     
     // Event
-    public event Action<float, float> OnValueChanged;
+    // public event Action<float, float> OnValueChanged;
 
     #endregion
     
@@ -141,7 +141,7 @@ public abstract class BaseStatus : IStatus
         
         _curValue = newCurValue;
         _maxValue = newMaxValue;
-        OnValueChanged?.Invoke(_curValue, _maxValue);
+        // OnValueChanged?.Invoke(_curValue, _maxValue);
     }
 
     #endregion

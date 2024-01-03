@@ -9,7 +9,7 @@ public interface IStatus
     float MaxValue { get; }
     
     // Event
-    event Action<float, float> OnValueChanged;
+    // event Action<float, float> OnValueChanged;
 
     #endregion
     

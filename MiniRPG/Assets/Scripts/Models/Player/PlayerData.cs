@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 /// <summary>
 /// # PlayerData => Model (Data) 부분
@@ -11,15 +8,15 @@ public class PlayerData
     #region Fields
 
     // Status
-    public HealthPoint HP { get; private set; }
-    public ManaPoint MP { get; private set; }
-    public ExperiencePoint EXP { get; private set; }
+    public HealthPoint Hp { get; private set; }
+    public ManaPoint Mp { get; private set; }
+    public ExperiencePoint Exp { get; private set; }
     
     // Singly Attributes
-    public BaseDamage BaseDMG { get; private set; }
-    public BaseDefense BaseDEF { get; private set; }
-    public FinalDamage FinalDMG { get; private set; }
-    public FinalDefense FinalDEF { get; private set; }
+    public BaseDamage BaseDmg { get; private set; }
+    public BaseDefense BaseDef { get; private set; }
+    public FinalDamage FinalDmg { get; private set; }
+    public FinalDefense FinalDef { get; private set; }
     public CriticalChance CritChance { get; private set; }
     public CriticalDamage CritDamage { get; private set; }
     public MoveSpeed MoveSpd { get; private set; }
@@ -52,14 +49,14 @@ public class PlayerData
     private void Initialize()
     {
         // 초기 세팅 값
-        HP = new HealthPoint(1000f, 1000f);
-        MP = new ManaPoint(200f, 200f);
-        EXP = new ExperiencePoint(0f, 1000f);
+        Hp = new HealthPoint(1000f, 1000f);
+        Mp = new ManaPoint(200f, 200f);
+        Exp = new ExperiencePoint(0f, 1000f);
 
-        BaseDMG = new BaseDamage(50f);
-        BaseDEF = new BaseDefense(5f);
-        FinalDMG = new FinalDamage(BaseDMG.Value);
-        FinalDEF = new FinalDefense(BaseDEF.Value);
+        BaseDmg = new BaseDamage(50f);
+        BaseDef = new BaseDefense(5f);
+        FinalDmg = new FinalDamage(BaseDmg.Value);
+        FinalDef = new FinalDefense(BaseDef.Value);
         CritChance = new CriticalChance(5f);
         CritDamage = new CriticalDamage(50f);
         MoveSpd = new MoveSpeed(5f);
@@ -70,14 +67,14 @@ public class PlayerData
         float baseDmg, float baseDef, float finalDmg, float finalDef,
         float critChance, float critDamage, float moveSpd)
     {
-        HP = new HealthPoint(hp, maxHp);
-        MP = new ManaPoint(mp, maxMp);
-        EXP = new ExperiencePoint(exp, maxExp);
+        Hp = new HealthPoint(hp, maxHp);
+        Mp = new ManaPoint(mp, maxMp);
+        Exp = new ExperiencePoint(exp, maxExp);
 
-        BaseDMG = new BaseDamage(baseDmg);
-        BaseDEF = new BaseDefense(baseDef);
-        FinalDMG = new FinalDamage(finalDmg);
-        FinalDEF = new FinalDefense(finalDef);
+        BaseDmg = new BaseDamage(baseDmg);
+        BaseDef = new BaseDefense(baseDef);
+        FinalDmg = new FinalDamage(finalDmg);
+        FinalDef = new FinalDefense(finalDef);
         CritChance = new CriticalChance(critChance);
         CritDamage = new CriticalDamage(critDamage);
         MoveSpd = new MoveSpeed(moveSpd);

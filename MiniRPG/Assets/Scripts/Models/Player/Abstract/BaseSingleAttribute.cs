@@ -12,7 +12,7 @@ public abstract class BaseSingleAttribute : ISingleAttribute
     public float Value => _value;
     
     // Event
-    public event Action<float> OnValueChanged;
+    // public event Action<float> OnValueChanged;
 
     #endregion
 
@@ -93,7 +93,7 @@ public abstract class BaseSingleAttribute : ISingleAttribute
         if (Mathf.Approximately(_value, newValue)) return;
 
         _value = newValue;
-        OnValueChanged?.Invoke(_value);
+        // OnValueChanged?.Invoke(_value);
     }
 
     #endregion
