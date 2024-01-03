@@ -1,30 +1,8 @@
+
 using Managers;
-using UnityEngine;
 
-public class Main : MonoBehaviour
+public class Main : SingletonBehavior<Main>
 {
-    #region Singleton
-
-    private static Main _instance;
-    private static bool _initialize;
-
-    public static Main Instance
-    {
-        get
-        {
-            if (_initialize) {return _instance;}
-            _initialize = true;
-            GameObject main = GameObject.Find("@Main");
-            if (main != null) return _instance;
-            main = new GameObject { name = "@Main" };
-            main.AddComponent<Main>();
-            DontDestroyOnLoad(main);
-            _instance = main.GetComponent<Main>();
-            return _instance;
-        }
-    }
-    #endregion
-
     #region Field
 
     private readonly DataManager _data = new();
@@ -37,6 +15,8 @@ public class Main : MonoBehaviour
 
     #endregion
 
+    
+    
     #region Properties
 
     public static DataManager Data => Instance._data;
