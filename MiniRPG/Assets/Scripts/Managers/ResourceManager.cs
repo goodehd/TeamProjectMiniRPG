@@ -66,20 +66,6 @@ namespace Managers
             };
         }
 
-        private void TextCallbackFunction<TextAsset>(string key, AsyncOperationHandle<TextAsset> handle, Action<TextAsset> callback) where TextAsset : Object
-        {
-                handle.Completed += operationHandle => {
-                //    var textList= operationHandle.Result;
-                 //   foreach (var item in textList)
-                   // {
-                        if (!_resources.ContainsKey(key))
-                            _resources.Add(key, operationHandle.Result);
-                   // }
-
-                callback?.Invoke(operationHandle.Result);
-            };
-        }
-
         private void LoadResource<T>(string key, Action<T> callback =null) where T: Object
         {
             string loadKey = key;
@@ -101,15 +87,6 @@ namespace Managers
                 HandlerCallbackFunction(loadKey, handle, callback as Action<Sprite>);
 
             }
-            /*
-            else if (key.Contains(".text")) //text (csv) 
-            { 
-                
-                loadKey = $"{key.Replace(".text", "")}";
-                AsyncOperationHandle<TextAsset> handle = Addressables.LoadAssetAsync<TextAsset>(loadKey);
-                TextCallbackFunction(loadKey, handle, callback as Action<TextAsset>);
-            }
-            */
             else // object
             {
                 AsyncOperationHandle<T> handle = Addressables.LoadAssetAsync<T>(loadKey);
