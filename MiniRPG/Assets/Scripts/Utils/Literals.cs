@@ -14,4 +14,11 @@ public static class Literals
     public const string INTRO_SPRITE = "IntroSprite";
     public const string INTRO_STARTBTN = "StartBtn;";
     public const string INTRO_STARTBTN_TEXT = "StartText";
+
+    #region Path
+
+    public const string CSV_PATH = "Assets/@Resources/Csv/";
+    public const string JSON_PATH = "Assets/@Resources/Json/";
+
+    #endregion
 }
