@@ -1,68 +1,62 @@
 
+using System;
 using UnityEngine;
 
-public class ExperiencePoint : IStatus
+public class ExperiencePoint : BaseStatus
 {
-    #region Fields
-
-    [SerializeField] private float _currentValue;
-    [SerializeField] private float _maxValue;
-    
-    // Properties
-    public float CurrentValue => _currentValue;
-    public float MaxValue => _maxValue;
-
-    #endregion
-
-
-
     #region Constructor
 
-    public ExperiencePoint(float setValue)
-    {
-        _maxValue = setValue;
-        _currentValue = MaxValue;
-    }
+    public ExperiencePoint(float setValue) : base(setValue) { }
 
-    public ExperiencePoint(float curValue, float maxValue)
-    {
-        _currentValue = curValue;
-        _maxValue = maxValue;
-    }
+    public ExperiencePoint(float curValue, float maxValue) : base(curValue, maxValue) { }
 
     #endregion
 
 
 
-    #region Interface Methods
+    #region Abstract Methods
 
-    public void AddValue(float amount)
+    protected override void PerformSetting(float amount)
     {
-        _currentValue = Mathf.Min(CurrentValue + amount, MaxValue);
+        // 최소치 ~ 최대치 예외 및 검증
+        amount = Mathf.Clamp(amount, Literals.EXP_MIN, _maxValue);
+        
+        ValueChangedHandle(amount, _maxValue);
     }
 
-    public void SubValue(float amount)
+    protected override void PerformAddition(float amount)
     {
-        _currentValue = Mathf.Max(CurrentValue - amount, 0f);
-    }
-    
-    public void AddPercentageValue(float percentage)
-    {
-        var addAmount = MaxValue * (percentage / 100f);
-
-        AddValue(addAmount);
-    }
-    
-    public void SubPercentageValue(float percentage)
-    {
-        var subAmount = MaxValue * (percentage / 100f);
-
-        SubValue(subAmount);
+        var newCurValue = Mathf.Min(_curValue + amount, _maxValue);
+        
+        ValueChangedHandle(newCurValue, _maxValue);
     }
 
-    public float GetPercentage()
+    protected override void PerformSubtraction(float amount)
     {
-        return MaxValue > 0 ? CurrentValue / MaxValue : 0;
+        var newCurValue = Mathf.Max(_curValue - amount, Literals.EXP_MIN);
+
+        ValueChangedHandle(newCurValue, _maxValue);
+    }
+
+    protected override void PerformMaxSetting(float amount)
+    {
+        amount = Mathf.Clamp(amount, _maxValue, Literals.EXP_MAX);
+
+        ValueChangedHandle(_curValue, amount);
+    }
+
+    protected override void PerformMaxAddition(float amount)
+    {
+        var newMaxValue = Mathf.Min(_maxValue + amount, Literals.EXP_MAX);
+        
+        ValueChangedHandle(_curValue, newMaxValue);
+    }
+
+    protected override void PerformMaxSubtraction(float amount)
+    {
+        var newMaxValue = Mathf.Max(_maxValue - amount, 1f);
+        
+        ValueChangedHandle(_curValue, newMaxValue);
     }
 
     #endregion

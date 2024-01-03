@@ -1,67 +1,35 @@
+
 using UnityEngine;
 
-public class BaseDamage : ISingleAttribute
+public class BaseDamage : BaseSingleAttribute
 {
-    #region Field
-
-    [SerializeField] private float _value;
-    
-    // Properties
-    public float Value => _value;
-
-    #endregion
+    // Constructor
+    public BaseDamage(float setValue) : base(setValue) { }
 
 
 
-    #region Constructor
+    #region Abstract Methods
 
-    public BaseDamage(float setValue)
+    protected override void PerformSetting(float amount)
     {
-        _value = setValue;
+        // 최소치 ~ 최대치 예외 및 검증
+        amount = Mathf.Clamp(amount, Literals.DMG_MIN, Literals.DMG_MAX);
+        
+        ValueChangedHandle(amount);
     }
 
-    #endregion
-
-
-
-    #region Interface Methods
-
-    public void AddValue(float amount)
+    protected override void PerformAddition(float amount)
     {
-        if (amount < 0)
-        {
-            // Debug는 빌드 시 다 삭제해야 됌
-            Debug.LogWarning("Amount is negative" + amount);
-            return;
-        }
-
-        _value += amount;
+        var newValue = Mathf.Min(_value + amount, Literals.DMG_MAX);
+        
+        ValueChangedHandle(newValue);
     }
 
-    public void SubValue(float amount)
+    protected override void PerformSubtraction(float amount)
     {
-        if (amount < 0)
-        {
-            // Debug는 빌드 시 다 삭제해야 됌
-            Debug.LogWarning("Amount is negative" + amount);
-            return;
-        }
-
-        _value = Mathf.Max(Value - amount, 0f);
-    }
-    
-    public void AddPercentageValue(float percentage)
-    {
-        var addAmount = Value * (percentage / 100f);
-
-        AddValue(addAmount);
-    }
-    
-    public void SubPercentageValue(float percentage)
-    {
-        var subAmount = Value * (percentage / 100f);
-
-        SubValue(subAmount);
+        var newValue = Mathf.Max(_value - amount, Literals.DMG_MIN);
+        
+        ValueChangedHandle(newValue);
     }
 
     #endregion

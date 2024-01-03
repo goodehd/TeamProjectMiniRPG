@@ -1,68 +1,34 @@
 using UnityEngine;
 
-public class MoveSpeed : ISingleAttribute
+public class MoveSpeed : BaseSingleAttribute
 {
-    #region Field
-
-    [SerializeField] private float _value;
+    // Constructor
+    public MoveSpeed(float setValue) : base(setValue) { }
     
-    // Properties
-    public float Value => _value;
-
-    #endregion
-
-
-
-    #region Constructor
-
-    public MoveSpeed(float setValue)
-    {
-        _value = setValue;
-    }
-
-    #endregion
-
-
-
-    #region Interface Methods
-
-    public void AddValue(float amount)
-    {
-        if (amount < 0)
-        {
-            // Debug는 빌드 시 다 삭제해야 됌
-            Debug.LogWarning("Amount is negative" + amount);
-            return;
-        }
-
-        // 나중에 최대 속도 제한 값은 정해줘야 됌
-        _value += Mathf.Min(Value + amount, 999f);
-    }
-
-    public void SubValue(float amount)
-    {
-        if (amount < 0)
-        {
-            // Debug는 빌드 시 다 삭제해야 됌
-            Debug.LogWarning("Amount is negative" + amount);
-            return;
-        }
-
-        _value = Mathf.Max(Value - amount, 0f);
-    }
     
-    public void AddPercentageValue(float percentage)
-    {
-        var addAmount = Value * (percentage / 100f);
-
-        AddValue(addAmount);
-    }
     
-    public void SubPercentageValue(float percentage)
-    {
-        var subAmount = Value * (percentage / 100f);
+    #region Abstract Methods
 
-        SubValue(subAmount);
+    protected override void PerformSetting(float amount)
+    {
+        // 최소치 ~ 최대치 예외 및 검증
+        amount = Mathf.Clamp(amount, 0f, 10000f);
+        
+        ValueChangedHandle(amount);
+    }
+
+    protected override void PerformAddition(float amount)
+    {
+        var newValue = Mathf.Min(_value + amount, 10000f);
+        
+        ValueChangedHandle(newValue);
+    }
+
+    protected override void PerformSubtraction(float amount)
+    {
+        var newValue = Mathf.Max(_value - amount, 0f);
+        
+        ValueChangedHandle(newValue);
     }
 
     #endregion

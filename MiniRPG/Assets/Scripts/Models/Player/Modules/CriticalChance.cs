@@ -1,67 +1,34 @@
 using UnityEngine;
 
-public class CriticalChance : ISingleAttribute
+public class CriticalChance : BaseSingleAttribute
 {
-    #region Field
+    // Constructor
+    public CriticalChance(float setValue) : base(setValue) { }
 
-    [SerializeField] private float _value;
     
-    // Properties
-    public float Value => _value;
-
-    #endregion
-
-
-
-    #region Constructor
-
-    public CriticalChance(float setValue)
-    {
-        _value = setValue;
-    }
-
-    #endregion
-
-
-
-    #region Interface Methods
-
-    public void AddValue(float amount)
-    {
-        if (amount < 0)
-        {
-            // Debug는 빌드 시 다 삭제해야 됌
-            Debug.LogWarning("Amount is negative" + amount);
-            return;
-        }
-
-        _value += Mathf.Min(Value + amount, 100f);
-    }
-
-    public void SubValue(float amount)
-    {
-        if (amount < 0)
-        {
-            // Debug는 빌드 시 다 삭제해야 됌
-            Debug.LogWarning("Amount is negative" + amount);
-            return;
-        }
-
-        _value = Mathf.Max(Value - amount, 0f);
-    }
     
-    public void AddPercentageValue(float percentage)
-    {
-        var addAmount = Value * (percentage / 100f);
+    #region Abstract Methods
 
-        AddValue(addAmount);
+    protected override void PerformSetting(float amount)
+    {
+        // 최소치 ~ 최대치 예외 및 검증
+        amount = Mathf.Clamp(amount, Literals.CRIT_CHANCE_MIN, Literals.CRIT_CHANCE_MAX);
+        
+        ValueChangedHandle(amount);
     }
-    
-    public void SubPercentageValue(float percentage)
-    {
-        var subAmount = Value * (percentage / 100f);
 
-        SubValue(subAmount);
+    protected override void PerformAddition(float amount)
+    {
+        var newValue = Mathf.Min(_value + amount, Literals.CRIT_CHANCE_MAX);
+        
+        ValueChangedHandle(newValue);
+    }
+
+    protected override void PerformSubtraction(float amount)
+    {
+        var newValue = Mathf.Max(_value - amount, Literals.CRIT_CHANCE_MIN);
+        
+        ValueChangedHandle(newValue);
     }
 
     #endregion
