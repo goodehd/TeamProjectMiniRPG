@@ -11,6 +11,7 @@ namespace UI.Scene
         public Image Skill1 { get; private set; }
         public Image Skill2 { get; private set; }
 
+        public Button btn { get; private set; }
         public SkillTooltip_UI Skill1Tooltip;
 
 
@@ -18,10 +19,26 @@ namespace UI.Scene
         {
             if (!base.Initialized()) return false;
             SetupImage();
+            SetupButton();
             return true;
         }
 
+        private void SetupButton()
+        {
+            SetUI<Button>();
+            btn = GetUI<Button>("Button");
+            btn.gameObject.SetEvent(UIEventType.Click, LoadingPage);
+        }
 
+        private void LoadingPage(PointerEventData data)
+        {
+
+            string label = "Game";
+            Main.NextScene = "Game";
+            Main.Scenes.LoadLoadingScene();
+
+
+        }
         private void SetupImage()
         {
             SetUI<Image>();

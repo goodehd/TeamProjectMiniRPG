@@ -13,7 +13,6 @@ namespace Scene
 
             Main.Resource.AllLoadResource<Object>("Preload", (key, count, totalCount) =>
             {
-                Debug.Log("load preload");
                 if (count < totalCount) return;
                 Initialized();
             });

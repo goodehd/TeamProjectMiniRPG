@@ -5,10 +5,16 @@ namespace Managers
 {
     public class ScenesManager
     {
-       public string nextScenelabel { get; set; }
+        private static string nextSceneLabel; 
+        public  void LoadLoadingScene()
+        {
+            nextSceneLabel = Main.NextScene;
+           SceneManager. LoadScene("LoadingScene"); //로딩씬 출력 
+
+        }
         public void LoadNextSceneObject()
         {
-            AsyncOperation sceneLoadOperation = SceneManager.LoadSceneAsync(nextScenelabel);
+            AsyncOperation sceneLoadOperation = SceneManager.LoadSceneAsync(nextSceneLabel);
             sceneLoadOperation.allowSceneActivation = true;
         }
     }

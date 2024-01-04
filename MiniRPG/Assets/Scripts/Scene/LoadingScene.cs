@@ -11,7 +11,9 @@ namespace Scene
         protected override bool Initialized()
         {
             if (!base.Initialized()) return false;
-            LoadResourcesForNextScene(nextSceneLabel);
+            UI.SetSceneUI<Loading_UI>();
+            Debug.Log(Main.NextScene);
+            LoadResourcesForNextScene(Main.NextScene);
             return true;
         }
        

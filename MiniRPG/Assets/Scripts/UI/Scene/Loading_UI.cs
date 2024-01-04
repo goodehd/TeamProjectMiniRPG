@@ -6,8 +6,7 @@ namespace UI.Scene
 {
     public class Loading_UI : BaseUI
     {
-        private Button _startBtn;
-        private TextMeshProUGUI _startBtnText;
+
         protected override bool Initialized()
         {
             if (!base.Initialized()) return false;
@@ -18,7 +17,6 @@ namespace UI.Scene
         private void SetupText()
         {
             SetUI<TextMeshProUGUI>();
-
         }
 
     }
