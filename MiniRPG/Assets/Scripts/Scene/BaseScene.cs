@@ -10,15 +10,22 @@ namespace Scene
         protected UIManager UI;
         private void Start()
         {
-            Initialized();
+
+            Main.Resource.AllLoadResource<Object>("Preload", (key, count, totalCount) =>
+            {
+                Debug.Log("load preload");
+                if (count < totalCount) return;
+                Initialized();
+            });
+
         }
+
 
         protected virtual bool Initialized()
         {
             if (_initialize) return false;
             _initialize = true;
-            
-            // public void AllLoadResource<T>(string label, Action<string,int,int> callback) where T : Object
+
             UI = Main.UI;
             return _initialize;
         }
