@@ -53,8 +53,9 @@ namespace Managers
             return string.IsNullOrEmpty(uiName) ? typeof(T).Name : uiName;
         }
 
-        public T OpenPopup<T>(string uiName) where T : PopupUI
+        public T OpenPopup<T>() where T : PopupUI
         {
+            string uiName = typeof(T).Name;
             string ui = NameOfUI<T>(uiName);
             T popup = SetUI<T>(ui, UIBase.transform);
             popup.name = $"{uiName}";
