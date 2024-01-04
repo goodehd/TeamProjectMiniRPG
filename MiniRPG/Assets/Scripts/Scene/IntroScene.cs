@@ -11,7 +11,7 @@ namespace Scene
             Main.Resource.AllLoadResource<Object>("Preload", (key, loadCount, totalCount) => { 
                 if(loadCount == totalCount) 
                 {
-                    
+                    UI.SetSceneUI<TestUI>();
                 }
             });
             
