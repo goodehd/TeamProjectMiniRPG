@@ -1,5 +1,6 @@
 using Managers;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Scene
 {
@@ -16,6 +17,8 @@ namespace Scene
         {
             if (_initialize) return false;
             _initialize = true;
+            
+            // public void AllLoadResource<T>(string label, Action<string,int,int> callback) where T : Object
             UI = Main.UI;
             return _initialize;
         }
