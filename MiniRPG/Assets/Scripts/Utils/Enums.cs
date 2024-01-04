@@ -6,3 +6,8 @@ public enum E_GAME_STATE
     Pause,
     End
 }
+
+public enum UIEventType
+{
+    Click, PointerEnter, PointerExit
+}
