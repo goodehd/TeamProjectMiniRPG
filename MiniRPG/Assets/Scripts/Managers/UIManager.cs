@@ -18,16 +18,21 @@ namespace Managers
             }
         }
 
-        public T SetSceneUI<T>(GameObject uiPrefab) where T : BaseUI
+        
+        public T SetSceneUI<T>() where T : BaseUI
         {
-            return SetUI<T>(uiPrefab, UIBase.transform);
+            string sceneUIName = typeof(T).Name;
+            Debug.Log(sceneUIName);
+            return SetUI<T>(sceneUIName, UIBase.transform);
         }
 
-        private T SetUI<T>(GameObject uiPrefab, Transform parent = null) where T : Component
+        private T SetUI<T>(string uiName, Transform parent = null) where T : Component
         {
-            GameObject uiObject = Object.Instantiate(uiPrefab, UIBase.transform);
+            GameObject uiObject = Main.Resource.InstantiatePrefab(uiName, parent);
             T ui = Utility.GetAddComponent<T>(uiObject);
             return ui;
         }
+
+        
     }
 }
