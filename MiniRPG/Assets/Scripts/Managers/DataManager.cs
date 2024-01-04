@@ -33,8 +33,8 @@ namespace Managers
             test1.Attack = 1;
             test1.Description = "description";
 
-            SaveData<TestData>(test1, "testData");
-            TestData test2 = LoadData<TestData>("testData");
+            SaveData<TestData>(test1, "testData2");
+            TestData test2 = LoadData<TestData>("testData2");
         }
 
         // memory -> json
