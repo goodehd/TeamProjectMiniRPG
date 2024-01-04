@@ -19,14 +19,6 @@ namespace Scene
         {
             if (_initialize) return false;
             _initialize = true;
-
-            Object eventSystem = FindObjectOfType<EventSystem>();
-            Main.Resource.AllLoadResource<Object>("Preload", (key, loadCount, totalCount) => {
-                if (loadCount == totalCount)
-                {
-                    if (eventSystem == null) Main.Resource.InstantiatePrefab("EventSystem");
-                }
-            });
             UI = Main.UI;
             return _initialize;
         }
