@@ -1,30 +1,24 @@
 
-public class PlayerIdleState : PlayerBaseState
+public class PlayerIdleState : PlayerGroundState
 {
+    // Constructor
+    public PlayerIdleState(PlayerStateMachine playerStateMachine) : base(playerStateMachine) { }
 
-    #region Constructor
 
-    public PlayerIdleState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
-    {
-    }
 
-    #endregion
-    
+    #region Override
+
     public override void Enter()
     {
         base.Enter();
-        
+        StartAnimation(_PlayerAnimationData.IdleHash);
     }
 
     public override void Exit()
     {
         base.Exit();
+        StopAnimation(_PlayerAnimationData.IdleHash);
     }
 
-    public override void UpdateLogic()
-    {
-        base.UpdateLogic();
-    }
-
-    
+    #endregion
 }

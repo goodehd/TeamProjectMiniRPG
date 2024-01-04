@@ -45,8 +45,8 @@ public class PlayerStateMachine : StateMachine
     private void InitializeState()
     {
         IdleState = new PlayerIdleState(this);
-        WalkState = new PlayerWalkState(this);
-        RunState = new PlayerRunState(this);
+        // WalkState = new PlayerWalkState(this);
+        // RunState = new PlayerRunState(this);
     }
     
     private void InitializeInfo()

@@ -1,7 +1,8 @@
 
-using System;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Player : MonoBehaviour
 {
     #region Fields
@@ -17,7 +18,8 @@ public class Player : MonoBehaviour
     public Rigidbody PlayerRBody { get; private set; }
     public Animator PlayerAnimator { get; private set; }
     public PlayerInput PlayerInput { get; private set; }
-    public CharacterController PlayerController { get; private set; }
+    public NavMeshAgent PlayerAgent { get; private set; }
+    public Camera MainCamera { get; private set; }
     
     // State Machine
     private PlayerStateMachine _playerStateMachine;
@@ -35,7 +37,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        CursorLock();
         SetupState();
     }
 
@@ -69,14 +70,10 @@ public class Player : MonoBehaviour
         PlayerRBody = GetComponent<Rigidbody>();
         PlayerAnimator = GetComponent<Animator>();
         PlayerInput = GetComponent<PlayerInput>();
-        PlayerController = GetComponent<CharacterController>();
+        PlayerAgent = GetComponent<NavMeshAgent>();
+        MainCamera = Camera.main;
 
         _playerStateMachine = new PlayerStateMachine(this);
-    }
-
-    private void CursorLock()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void SetupState()

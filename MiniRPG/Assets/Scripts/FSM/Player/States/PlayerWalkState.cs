@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class PlayerWalkState : MonoBehaviour
+using UnityEngine.InputSystem;
+
+public class PlayerWalkState : PlayerGroundState
 {
-    // Start is called before the first frame update
-    void Start()
+    // Constructor
+    public PlayerWalkState(PlayerStateMachine playerStateMachine) : base(playerStateMachine) { }
+
+
+
+    #region Override
+
+    public override void Enter()
     {
-        
+        base.Enter();
+        StartAnimation(_PlayerAnimationData.WalkHash);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Exit()
     {
-        
+        base.Exit();
+        StopAnimation(_PlayerAnimationData.WalkHash);
     }
+
+    #endregion
 }

@@ -7,6 +7,8 @@ public class PlayerAnimationData
 {
     #region Fields
 
+    [SerializeField] private string _GroundName = "@Ground";
+    
     [SerializeField] private string _IdleName = "Idle";
     [SerializeField] private string _WalkName = "Walk";
     [SerializeField] private string _RunName = "Run";
@@ -23,6 +25,8 @@ public class PlayerAnimationData
 
     #region Getter (Properties)
 
+    public int GroundHash { get; private set; }
+    
     public int IdleHash { get; private set; }
     public int WalkHash { get; private set; }
     public int RunHash { get; private set; }
@@ -39,6 +43,8 @@ public class PlayerAnimationData
 
     public void Initialize()
     {
+        GroundHash = Animator.StringToHash(_GroundName);
+        
         IdleHash = Animator.StringToHash(_IdleName);
         WalkHash = Animator.StringToHash(_WalkName);
         RunHash = Animator.StringToHash(_RunName);

@@ -1,14 +1,25 @@
 
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class PlayerBaseState : IFiniteState
 {
-    #region Inverse Reference
-
-    protected PlayerStateMachine _playerStateMachine;
-    protected PlayerInput _playerInput;
+    #region Fields
+    
+    // Inverse Reference
+    protected readonly PlayerStateMachine _playerStateMachine;
+    protected readonly PlayerInput _playerInput;
+    protected readonly NavMeshAgent _playerAgent;
+    protected readonly Animator _playerAnimator;
+    protected readonly PlayerAnimationData _PlayerAnimationData;
+    
+    // Input Member
+    protected bool _isRightButton;
     
     #endregion
+    
+    
 
 
 
@@ -19,6 +30,9 @@ public class PlayerBaseState : IFiniteState
         _playerStateMachine = playerStateMachine;
 
         _playerInput = _playerStateMachine.Player.PlayerInput;
+        _playerAgent = _playerStateMachine.Player.PlayerAgent;
+        _playerAnimator = _playerStateMachine.Player.PlayerAnimator;
+        _PlayerAnimationData = _playerStateMachine.Player.AnimationData;
     }
 
     #endregion
@@ -35,18 +49,18 @@ public class PlayerBaseState : IFiniteState
     }
 
     public virtual void HandleInput()
-    {
-        ReadMovementInput();
+    { 
+        
     }
 
     public virtual void UpdateLogic()
     {
-        throw new System.NotImplementedException();
+        MovementToRay();
     }
 
     public virtual void UpdatePhysics()
     {
-        throw new System.NotImplementedException();
+        
     }
 
 
@@ -55,32 +69,68 @@ public class PlayerBaseState : IFiniteState
 
     protected virtual void AddInputActionCallbacks()
     {
-        
+        _playerInput.PlayerActions.MovementApply.performed += OnMovementPerformed;
+        _playerInput.PlayerActions.Run.started += OnRunStarted;
     }
 
     protected virtual void RemoveInputActionCallbacks()
     {
-        
-    }
-
-    private void ReadMovementInput()
-    {
-        _playerStateMachine.MovementInput = _playerInput.PlayerActions.MovementAxis.ReadValue<Vector2>();
-        if(_playerInput.PlayerActions.MovementApply.performed)
-    }
-
-    private void Movement()
-    {
-        
+        _playerInput.PlayerActions.MovementApply.performed -= OnMovementPerformed;
+        _playerInput.PlayerActions.Run.started -= OnRunStarted;
     }
 
     #endregion
 
 
 
-    #region Movements
+    #region Movement
 
+    private void MovementToRay()
+    {
+        if (!_isRightButton) return;
+        
+        var mousePos = _playerInput.PlayerActions.MovementAxis.ReadValue<Vector2>();
+        var ray = _playerStateMachine.Player.MainCamera.ScreenPointToRay(mousePos);
+        var walkableLayerMask = LayerMask.GetMask(Literals.LAYER_MASK_WALKABLE);
+        
+        if (Physics.Raycast(ray, out var hit, 100f, walkableLayerMask))
+        {
+            Debug.Log(hit.point);
+            // Movement
+            Movement(hit.point);
+        }
+    }
 
+    private void Movement(Vector3 location)
+    {
+        _playerAgent.SetDestination(location);
+    }
 
     #endregion
+
+
+
+    #region Animations
+
+    protected void StartAnimation(int animationHash)
+    {
+        _playerAnimator.SetBool(animationHash, true);
+    }
+
+    protected void StopAnimation(int animationHash)
+    {
+        _playerAnimator.SetBool(animationHash, false);
+    }
+
+    #endregion
+
+
+
+    #region Events
+
+    protected virtual void OnRunStarted(InputAction.CallbackContext context) { }
+    protected virtual void OnMovementPerformed(InputAction.CallbackContext context) { }
+
+    #endregion
+    
 }
