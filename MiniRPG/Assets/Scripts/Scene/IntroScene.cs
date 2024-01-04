@@ -18,7 +18,7 @@ namespace Scene
                 {
                     if (eventSystem == null) Main.Resource.InstantiatePrefab("EventSystem");
 
-                    UI.SetSceneUI<TestUI>();
+                    UI.SetSceneUI<Intro_UI>();
 
                 }
             });
