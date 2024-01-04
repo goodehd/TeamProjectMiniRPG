@@ -7,14 +7,14 @@ public class MonsterController : MonoBehaviour
     private Transform playerTransform;
     private NavMeshAgent nav;
 
-    [SerializeField]
+    //[SerializeField]
     protected int maxHealth = 100;
     protected int curHealth;
     protected int enemyPower = 5;
     protected float followDis = 10f;
-    protected float enemyAttackCoolTime = 0.8f;
+    protected float enemyAttackCoolTime = 0.5f;
     // 위 몬스터 요소는 추후 SO형식으로 바꿀 예정
-    //speed는 적 컴포넌트 nevmeshAgent 컴포넌트에서 설정할 수 있습니다.
+    // speed는 적 컴포넌트 nevmeshAgent 컴포넌트에서 설정할 수 있습니다.
 
     private bool isAttacking;
     private bool isDead;
@@ -50,6 +50,7 @@ public class MonsterController : MonoBehaviour
         {
             if (!anim.GetBool("IsWalking"))
             {
+                nav.isStopped = false;
                 anim.SetBool("IsWalking", true);
             }
             transform.LookAt(playerTransform);
@@ -59,15 +60,12 @@ public class MonsterController : MonoBehaviour
         {
             if (anim.GetBool("IsWalking"))
             {
-                anim.SetBool("IsWalking", false);
+                nav.isStopped = true;
+                anim.SetBool("IsWalking", false); 
             }
         }
     }
 
-    /*private void OnCollisionEnter(Collision other)
-    {
-        CollisionProcess(other);
-    }*/
     private void OnCollisionStay(Collision other)
     {
         CollisionProcess(other);
