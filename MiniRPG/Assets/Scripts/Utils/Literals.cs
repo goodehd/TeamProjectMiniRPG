@@ -56,4 +56,12 @@ public static class Literals
     public const string JSON_PATH = "Assets/@Resources/Json/";
 
     #endregion
+
+
+
+    #region Layer
+
+    public const string LAYER_MASK_WALKABLE = "Walkable";
+
+    #endregion
 }
