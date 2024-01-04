@@ -13,6 +13,7 @@ namespace Managers
         #region Field
         private int _orderByLayer = 1;
         private Stack<PopupUI> _popupStack = new();
+        private List<BaseUI> _subItemList = new();
         private event Action Open;
 
         private GameObject UIBase
@@ -84,9 +85,23 @@ namespace Managers
                 }
             }
         }
-
-        
         #endregion
+
+        #region SubItem
+
+        public T SetSubItemUI<T>(Transform parent = null) where T : BaseUI
+        {
+            string subitemUIName = typeof(T).Name;
+            return SetUI<T>(subitemUIName, parent);
+        }
+
+        public void DestroySubItemUI<T>(GameObject gameob) where T : BaseUI
+        {
+            string subitemUIName = typeof(T).Name;
+            Object.Destroy(gameob);
+        }
+        #endregion
+
 
         #region Canvas Layer
         public void OrderLayerToCanvas(GameObject uiObject, bool sort = true)
