@@ -55,7 +55,7 @@ public class PlayerBaseState : IFiniteState
 
     public virtual void UpdateLogic()
     {
-        MovementToRay();
+        // MovementToRay();
     }
 
     public virtual void UpdatePhysics()
@@ -70,6 +70,7 @@ public class PlayerBaseState : IFiniteState
     protected virtual void AddInputActionCallbacks()
     {
         _playerInput.PlayerActions.MovementApply.performed += OnMovementPerformed;
+        _playerInput.PlayerActions.MovementApply.canceled += OnMovementCanceled;
         _playerInput.PlayerActions.Run.started += OnRunStarted;
     }
 
@@ -88,14 +89,14 @@ public class PlayerBaseState : IFiniteState
     private void MovementToRay()
     {
         if (!_isRightButton) return;
-        
-        var mousePos = _playerInput.PlayerActions.MovementAxis.ReadValue<Vector2>();
+
+        var mousePos = Mouse.current.position.value;
         var ray = _playerStateMachine.Player.MainCamera.ScreenPointToRay(mousePos);
         var walkableLayerMask = LayerMask.GetMask(Literals.LAYER_MASK_WALKABLE);
         
-        if (Physics.Raycast(ray, out var hit, 100f, walkableLayerMask))
+        if (Physics.Raycast(ray, out var hit, 100f))
         {
-            Debug.Log(hit.point);
+            Debug.Log(hit.point + ", " + hit.transform.name);
             // Movement
             Movement(hit.point);
         }
@@ -129,8 +130,19 @@ public class PlayerBaseState : IFiniteState
     #region Events
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context) { }
-    protected virtual void OnMovementPerformed(InputAction.CallbackContext context) { }
+
+    protected virtual void OnMovementPerformed(InputAction.CallbackContext context)
+    {
+        Debug.Log("true");
+        _isRightButton = true;
+        MovementToRay();
+    }
+    
+    protected virtual void OnMovementCanceled(InputAction.CallbackContext context)
+    {
+        _isRightButton = false;
+    }
 
     #endregion
-    
+
 }
