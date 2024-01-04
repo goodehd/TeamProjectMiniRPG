@@ -64,4 +64,9 @@ public static class Literals
     public const string LAYER_MASK_WALKABLE = "Walkable";
 
     #endregion
+
+    #region UI_Intro
+    public const string INTRO_BUTTON = "IntroBtn";
+
+    #endregion
 }
