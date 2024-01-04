@@ -89,6 +89,7 @@ public class MonsterController : MonoBehaviour
         anim.SetTrigger("IsAttack");
         Invoke("ResetAttack", enemyAttackCoolTime);
     }
+
     private void ResetAttack()
     {
         Debug.Log("공격다시 가능해집니다.");
@@ -124,6 +125,7 @@ public class MonsterController : MonoBehaviour
         Invoke("DestroyObject", 2f);
         Debug.Log("몬스터가 죽었습니다..");
     }
+
     private void DestroyObject()
     {
         Destroy(gameObject);
