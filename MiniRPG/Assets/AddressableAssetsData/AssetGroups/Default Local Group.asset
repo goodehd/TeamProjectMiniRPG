@@ -41,6 +41,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63b6b35b9806eb245a7a847c8f8c30ae
+    m_Address: Select_UI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Select
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdbfc2ce6398c93449147572cdd872e4
+    m_Address: PlayerFemale.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Select
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae203a0e3a0466745bbb8f639d28ab14
+    m_Address: PlayerMale.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Select
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}
   m_SchemaSet:
