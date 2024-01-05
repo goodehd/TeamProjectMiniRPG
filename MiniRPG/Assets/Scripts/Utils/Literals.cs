@@ -67,6 +67,17 @@ public static class Literals
 
     #region UI_Intro
     public const string INTRO_BUTTON = "IntroBtn";
+    #endregion
 
+    #region UI_SelectScene
+    public const string SELECT_CANVAS = "Select_UI";
+
+    public const string SELECT_MALE_BUTTON = "Male_Select";
+    public const string SELECT_FEMALE_BUTTON = "Female_Select";
+
+    public const string SELECT_MALE_JOB_TEXT = "Male_JobText";
+    public const string SELECT_MALE_LV_TEXT = "Male_LvText";
+    public const string SELECT_FEMALE_JOB_TEXT = "Female_JobText";
+    public const string SELECT_FEMALE_LV_TEXT = "Female_LvText";
     #endregion
 }

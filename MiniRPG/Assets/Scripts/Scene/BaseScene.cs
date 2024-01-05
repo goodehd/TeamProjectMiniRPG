@@ -44,6 +44,7 @@ namespace Scene
             if (_initialize) return false;
             _initialize = true;
             UI = Main.UI;
+            Main.Scenes.CurrentSceneObject = this.gameObject;
             return _initialize;
         }
     }
