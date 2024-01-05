@@ -31,8 +31,8 @@ public class QuestButton : BaseUI
     private void SetupButton()
     {
         SetUI<Button>();
-        _questBtn = GetUI<Button>("QuestBtn(Clone)");
-        _questBtn.gameObject.SetEvent(UIEventType.Click, QuestBtnClick);
+        _questBtn = GetUI<Button>("QuestBtn");
+        _questBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, QuestBtnClick);
     }
 
     private void SetupText()

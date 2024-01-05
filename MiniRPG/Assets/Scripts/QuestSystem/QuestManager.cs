@@ -16,11 +16,6 @@ public class QuestManager
         questEvent.OnStartQuest += StartQuest;
         questEvent.OnAdvanceQuest += AdvanceQuest;
         questEvent.OnFinishQuest += FinishQuest;
-
-        //foreach(Quest quest in _questMap.Values)
-        //{
-        //    questEvent.QuestStateChange(quest);
-        //}
     }
 
     private void StartQuest(string id)

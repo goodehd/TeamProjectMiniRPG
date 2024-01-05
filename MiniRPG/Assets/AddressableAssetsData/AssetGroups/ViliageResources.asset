@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: ViliageResources
+  m_EditorClassIdentifier: 
+  m_GroupName: ViliageResources
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6ee79dea6bf5a6445b8d14a2a0225e9d
+  m_SerializeEntries:
+  - m_GUID: 72cb6212d2882834cb81743403b23787
+    m_Address: Buildings.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78f332530591a214695990a3f30435ba
+    m_Address: Path.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce690bdfcc50a714f88d3f613116177e
+    m_Address: Props.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48914543d42159c498ae2cf1928e99da
+    m_Address: Rocks.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99e63e4680746104fb75f5844f695cd9
+    m_Address: Sky.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2cbe200c2416194fb7527db37a8c91b
+    m_Address: Terrain.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b149f6c9f643558488e4bf6b9a3b1a79
+    m_Address: Vegetation.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f808ec53493d68479eadd743f0d645f
+    m_Address: DungeonNPC.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b2a1f82c291aa145879464c71cbcd2e
+    m_Address: QuestNPC.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2125dfd028d6ae4cbfcf6306efd397f
+    m_Address: ShopNPC.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d10b925721c252349877eb46d67b12ca
+    m_Address: DungeonIntroUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24cb386e0b327834aa25b04716d652f8
+    m_Address: QuestUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a0519472ec75724e93b86f9797e1d08
+    m_Address: QuestBtn.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 355a986a496f24740814a0da6d4d322c
+    m_Address: DungeonImage.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca2b14f12d07acb4ca59cd245400dd7a
+    m_Address: MaleTest.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6db771ffd48a931448445bc1cdf73c4b
+    m_Address: FemaleTest.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ac479c55e5f089743b096adcddca34f9, type: 2}
+    - {fileID: 11400000, guid: 03f04b389a7a85f4aa3faf49346e0a11, type: 2}

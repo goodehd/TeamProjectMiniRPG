@@ -12,8 +12,6 @@ public class QuestUI : PopupUI
     private List<Quest> _quests;
     private Quest _selectQuests;
 
-    private ContentSizeFitter _questList;
-
     private TextMeshProUGUI _questName;
     private TextMeshProUGUI _questDescript;
     private TextMeshProUGUI _questGoal;
@@ -24,15 +22,12 @@ public class QuestUI : PopupUI
     private Button _giveUpBtn;
     private Button _completionBtn;
 
-    private Transform infos;
+    private Transform _infos;
+    private Transform _questList;
 
     protected override bool Initialized()
     {
         if (!base.Initialized()) return false;
-
-        SetUI<Transform>();
-        infos = GetUI<Transform>("QuestInfos");
-        infos.gameObject.SetActive(false);
 
         SetupButton();
         SetupText();
@@ -46,6 +41,8 @@ public class QuestUI : PopupUI
             btnScrip.SetOwner(this);
         }
 
+        _infos.gameObject.SetActive(false);
+
         return true;
     }
 
@@ -56,7 +53,7 @@ public class QuestUI : PopupUI
 
     public void SetQuestInfo(Quest info)
     {
-        infos.gameObject.SetActive(true);
+        _infos.gameObject.SetActive(true);
 
         _selectQuests = info;
 
@@ -96,10 +93,10 @@ public class QuestUI : PopupUI
         _giveUpBtn = GetUI<Button>("GiveUpBtn");
         _completionBtn = GetUI<Button>("CompletionBtn");
 
-        _exitBtn.gameObject.SetEvent(UIEventType.Click, ExitBtnClick);
-        _acceptBtn.gameObject.SetEvent(UIEventType.Click, AcceptBtnClick);
-        _giveUpBtn.gameObject.SetEvent(UIEventType.Click, GiveUpBtnClick);
-        _completionBtn.gameObject.SetEvent(UIEventType.Click, CompletionBtnClick);
+        _exitBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, ExitBtnClick);
+        _acceptBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, AcceptBtnClick);
+        _giveUpBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, GiveUpBtnClick);
+        _completionBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, CompletionBtnClick);
     }
 
     private void SetupText()
@@ -114,7 +111,11 @@ public class QuestUI : PopupUI
     private void SetupGameObject()
     {
         SetUI<ContentSizeFitter>();
-        _questList = GetUI<ContentSizeFitter>("Content");
+
+        SetUI<Transform>();
+
+        _questList = GetUI<Transform>("Content");
+        _infos = GetUI<Transform>("QuestInfos");
     }
 
     private void ExitBtnClick(PointerEventData data)

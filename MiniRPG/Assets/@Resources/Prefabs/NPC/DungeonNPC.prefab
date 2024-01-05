@@ -675,6 +675,7 @@ GameObject:
   - component: {fileID: 6798427231694677883}
   - component: {fileID: 7745047888363016871}
   - component: {fileID: 5180159104715255905}
+  - component: {fileID: 558509498386357316}
   m_Layer: 0
   m_Name: DungeonNPC
   m_TagString: Interactable
@@ -702,7 +703,7 @@ Transform:
   - {fileID: 3761040462021361827}
   - {fileID: 2376371257968281635}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 170.286, z: 0}
 --- !u!95 &7745047888363016871
 Animator:
@@ -746,6 +747,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.98
   m_Center: {x: 0, y: 0.99, z: 0}
+--- !u!114 &558509498386357316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3657868103873319346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f3cdf42444acf4faba985756b0a755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3857995801999305029
 GameObject:
   m_ObjectHideFlags: 0

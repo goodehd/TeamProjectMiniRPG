@@ -83,7 +83,8 @@ namespace Managers
             }
             else if (key.Contains(".sprite")) //sprite
             {
-                loadKey = $"{key}[{key.Replace(".sprite", "")}]";
+                //[{key.Replace(".sprite", "")}]
+                loadKey = $"{key}";
                 AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(loadKey);
                 HandlerCallbackFunction(loadKey, handle, callback as Action<Sprite>);
 
@@ -109,7 +110,10 @@ namespace Managers
                 Debug.LogError($"Failed to load Prefab: {path}");
                 return null;
             }
-            return Object.Instantiate(resource, transform);
+            GameObject go = Object.Instantiate(resource, transform);
+            go.name = resource.name;
+
+            return go;
         }
 
 
