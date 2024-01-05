@@ -1,0 +1,35 @@
+{
+  "Hp": {
+    "CurValue": 1000.0,
+    "MaxValue": 1000.0
+  },
+  "Mp": {
+    "CurValue": 200.0,
+    "MaxValue": 200.0
+  },
+  "Exp": {
+    "CurValue": 0.0,
+    "MaxValue": 1000.0
+  },
+  "BaseDmg": {
+    "Value": 50.0
+  },
+  "BaseDef": {
+    "Value": 5.0
+  },
+  "FinalDmg": {
+    "Value": 50.0
+  },
+  "FinalDef": {
+    "Value": 5.0
+  },
+  "CritChance": {
+    "Value": 5.0
+  },
+  "CritDamage": {
+    "Value": 50.0
+  },
+  "MoveSpd": {
+    "Value": 5.0
+  }
+}
