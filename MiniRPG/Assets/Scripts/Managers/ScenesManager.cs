@@ -8,6 +8,7 @@ namespace Managers
         private static string nextSceneLabel;
         public  string NextScene { get; set; }
         public  string CurrentScene { get; set; }
+        public GameObject CurrentSceneObject { get; set; }
         public  void LoadLoadingScene()
         {
             nextSceneLabel = NextScene;
