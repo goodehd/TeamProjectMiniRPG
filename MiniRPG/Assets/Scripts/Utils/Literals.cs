@@ -74,6 +74,7 @@ public static class Literals
 
     public const string SELECT_MALE_BUTTON = "Male_Select";
     public const string SELECT_FEMALE_BUTTON = "Female_Select";
+    public const string SELECT_START_BUTTON = "StartBtn";
 
     public const string SELECT_MALE_JOB_TEXT = "Male_JobText";
     public const string SELECT_MALE_LV_TEXT = "Male_LvText";

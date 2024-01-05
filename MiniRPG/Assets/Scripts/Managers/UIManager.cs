@@ -65,7 +65,7 @@ namespace Managers
         }
 
 
-        public void ClosePopup(PopupUI popup, List<UIEventType> eventTypes)
+        public void ClosePopup(PopupUI popup, List<UI_EVENT_TYPE> eventTypes)
         {
             _popupStack.Pop();
             UnbindPopupEvents(popup, eventTypes);
@@ -73,12 +73,12 @@ namespace Managers
             Object.Destroy(popup);
         }
 
-        private void UnbindPopupEvents(PopupUI popup, List<UIEventType> eventTypes)
+        private void UnbindPopupEvents(PopupUI popup, List<UI_EVENT_TYPE> eventTypes)
         {
             UIEventHandler[] eventsHandler = popup.GetComponents<UIEventHandler>();
             foreach (UIEventHandler handler in eventsHandler)
             {
-                foreach (UIEventType eventType in eventTypes)
+                foreach (UI_EVENT_TYPE eventType in eventTypes)
                 {
                     handler.UnbindEvent(eventType);
                 }
