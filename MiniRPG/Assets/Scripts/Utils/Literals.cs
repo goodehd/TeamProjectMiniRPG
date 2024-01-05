@@ -11,6 +11,8 @@
 /// </summary>
 public static class Literals
 {
+    public const float ZeroF = 0f;
+    
     public const string INTRO_SPRITE = "IntroSprite";
     public const string INTRO_STARTBTN = "StartBtn;";
     public const string INTRO_STARTBTN_TEXT = "StartText";
