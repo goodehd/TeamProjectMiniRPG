@@ -1,7 +1,9 @@
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
@@ -13,8 +15,6 @@ namespace Managers
         #region Field
         private int _orderByLayer = 1;
         private Stack<PopupUI> _popupStack = new();
-        private List<BaseUI> _subItemList = new();
-        private event Action Open;
 
         private GameObject UIBase
         {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -20,16 +21,24 @@ public class Select_UI : BaseUI
     private TextMeshProUGUI _femaleJobText;
     private TextMeshProUGUI _femaleLvText;
 
+    private SelectScene _selectScene;
+
     protected override bool Initialized()
     {
         if (!base.Initialized()) return false;
 
+        SetupSelectScene();
         SetupCamera();
         SetupCanvas();
         SetupButton();
         SetupText();
 
         return true;
+    }
+
+    private void SetupSelectScene()
+    {
+        _selectScene = Main.Scenes.CurrentSceneObject.GetComponent<SelectScene>();  
     }
 
     private void SetupCamera()
@@ -51,8 +60,8 @@ public class Select_UI : BaseUI
         _maleBtn = GetUI<Button>(Literals.SELECT_MALE_BUTTON);
         _femaleBtn = GetUI<Button>(Literals.SELECT_FEMALE_BUTTON);
         
-        _maleBtn.gameObject.SetEvent(UIEventType.Click, TouchIntroButton);
-        _femaleBtn.gameObject.SetEvent(UIEventType.Click, TouchIntroButton);
+        _maleBtn.gameObject.SetEvent(UIEventType.Click, MaleButton);
+        _femaleBtn.gameObject.SetEvent(UIEventType.Click, FemaleButton);
 
     }
     private void SetupText()
@@ -64,8 +73,16 @@ public class Select_UI : BaseUI
         _femaleLvText = GetUI<TextMeshProUGUI>(Literals.SELECT_FEMALE_LV_TEXT);
     }
 
-    private void TouchIntroButton(PointerEventData data)
+
+    private void MaleButton(PointerEventData data)
     {
+        PlayerMale _playerMale = _selectScene.GetPlayerMale();
+        _playerMale.SetSelectTrue();
     }
 
+    private void FemaleButton(PointerEventData data)
+    {
+        PlayerFemale _playerFemale = _selectScene.GetPlayerFemale();
+        _playerFemale.SetSelectTrue();
+    }
 }
