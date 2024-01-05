@@ -11,8 +11,8 @@ namespace Scene
             if (!base.Initialized()) return false;
 
             Object eventSystem = FindObjectOfType<EventSystem>();
-
-            Main.Resource.AllLoadResource<Object>("Preload", (key, loadCount, totalCount) =>
+            
+            Main.Resource.AllLoadResource<Object>("Intro", (key, loadCount, totalCount) =>
             {
                 if (loadCount == totalCount)
                 {
@@ -22,7 +22,7 @@ namespace Scene
 
                 }
             });
-            //UI.SetSceneUI<TestUI>();
+   
 
             return true;
         }
