@@ -38,8 +38,10 @@ public class Intro_UI : BaseUI
 
     private void TouchIntroButton(PointerEventData data)
     {
-        //Main.Scenes.LoadLoadingScene();
-        //Main.NextScene = "SelectScene";
+
+        Main.NextScene = "Game";
+        Main.CurrentScene = "Intro";
+        Main.Scenes.LoadLoadingScene();
         Debug.Log("눌렸음");
         _text.text = "눌려짐";
     }

@@ -7,7 +7,6 @@ namespace Scene
     public class LoadingScene : BaseScene
     {
 
-        public string nextSceneLabel { get; set; }
         protected override bool Initialized()
         {
             if (!base.Initialized()) return false;
@@ -19,7 +18,7 @@ namespace Scene
         private void LoadResourcesForNextScene(string nextSceneLabel)
         {
             Main.Resource.UnloadAllAsync<Object>(Main.CurrentScene);
-            Main.Resource.AllLoadResource<Object>(nextSceneLabel, (key, currentCount, totalCount) =>
+            Main.Resource.AllLoadResource<Object>(Main.NextScene, (key, currentCount, totalCount) =>
             {
                 Debug.Log($"Loading....{key}");
                 if (currentCount < totalCount) return;

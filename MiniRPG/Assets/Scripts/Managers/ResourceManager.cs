@@ -13,6 +13,7 @@ namespace Managers
         public Dictionary<string, Object> _resources;
 
         public ResourceManager(){
+            Debug.Log(_resources);
             _resources = new Dictionary<string,Object>();
     }
 
