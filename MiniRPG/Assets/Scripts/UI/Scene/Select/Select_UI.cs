@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class Select_UI : BaseUI
 
     private Button _maleBtn;
     private Button _femaleBtn;
+    private Button _startBtn;
 
     private TextMeshProUGUI _maleJobText;
     private TextMeshProUGUI _maleLvText;
@@ -22,6 +24,10 @@ public class Select_UI : BaseUI
     private TextMeshProUGUI _femaleLvText;
 
     private SelectScene _selectScene;
+
+    private bool _isSelect = false;
+    PlayerMale _playerMale;
+    PlayerFemale _playerFemale;
 
     protected override bool Initialized()
     {
@@ -32,6 +38,9 @@ public class Select_UI : BaseUI
         SetupCanvas();
         SetupButton();
         SetupText();
+
+        _playerMale = _selectScene.GetPlayerMale();
+        _playerFemale = _selectScene.GetPlayerFemale();
 
         return true;
     }
@@ -59,11 +68,16 @@ public class Select_UI : BaseUI
         SetUI<Button>();
         _maleBtn = GetUI<Button>(Literals.SELECT_MALE_BUTTON);
         _femaleBtn = GetUI<Button>(Literals.SELECT_FEMALE_BUTTON);
+        _startBtn = GetUI<Button>(Literals.SELECT_START_BUTTON);
         
-        _maleBtn.gameObject.SetEvent(UIEventType.Click, MaleButton);
-        _femaleBtn.gameObject.SetEvent(UIEventType.Click, FemaleButton);
+        _maleBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, MaleButton);
+        _femaleBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, FemaleButton);
+        _startBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, StartButton);
 
     }
+
+    
+
     private void SetupText()
     {
         SetUI<TextMeshProUGUI>();
@@ -76,13 +90,38 @@ public class Select_UI : BaseUI
 
     private void MaleButton(PointerEventData data)
     {
-        PlayerMale _playerMale = _selectScene.GetPlayerMale();
-        _playerMale.SetSelectTrue();
+        SelectedCharacter(UI_SELECT_CHARACTER.Male);
+
+        if (_isSelect) return;
+        _startBtn.gameObject.SetActive(true);
     }
 
     private void FemaleButton(PointerEventData data)
     {
-        PlayerFemale _playerFemale = _selectScene.GetPlayerFemale();
-        _playerFemale.SetSelectTrue();
+        SelectedCharacter(UI_SELECT_CHARACTER.Female);
+
+        if (_isSelect) return;
+        _startBtn.gameObject.SetActive(true);
+    }
+
+    private void SelectedCharacter(UI_SELECT_CHARACTER character)
+    {
+        if(character == UI_SELECT_CHARACTER.Male)
+        {
+            _playerMale.SetSelectTrue();
+            _playerFemale.SetSelectFalse();
+        }
+        else
+        {
+            _playerMale.SetSelectFalse();
+            _playerFemale.SetSelectTrue();
+        }
+    }
+
+    private void StartButton(PointerEventData data)
+    {
+        Main.Scenes.NextScene = "Game";
+        Main.Scenes.CurrentScene = "Select";
+        Main.Scenes.LoadLoadingScene();
     }
 }

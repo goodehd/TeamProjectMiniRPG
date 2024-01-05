@@ -27,7 +27,7 @@ namespace UI.Scene
         {
             SetUI<Button>();
             btn = GetUI<Button>("Button");
-            btn.gameObject.SetEvent(UIEventType.Click, LoadingPage);
+            btn.gameObject.SetEvent(UI_EVENT_TYPE.Click, LoadingPage);
         }
 
         private void LoadingPage(PointerEventData data)
@@ -45,15 +45,15 @@ namespace UI.Scene
             SetUI<Image>();
             Skill1 = GetUI<Image>("Skill1");
             Skill2 = GetUI<Image>("Skill2");
-            Skill1.gameObject.SetEvent(UIEventType.PointerEnter, OpenTooltip1);
-            Skill2.gameObject.SetEvent(UIEventType.PointerEnter, OpenTooltip2);
+            Skill1.gameObject.SetEvent(UI_EVENT_TYPE.PointerEnter, OpenTooltip1);
+            Skill2.gameObject.SetEvent(UI_EVENT_TYPE.PointerEnter, OpenTooltip2);
         }
 
         private void OpenTooltip1(PointerEventData data)
         {
             Debug.Log("1번켜짐");
             Skill1Tooltip = UI.SetSubItemUI<SkillTooltip_UI>(Skill1.transform);
-            Skill1.gameObject.SetEvent(UIEventType.PointerExit, CloseTooltip1);
+            Skill1.gameObject.SetEvent(UI_EVENT_TYPE.PointerExit, CloseTooltip1);
         }
 
         private void CloseTooltip1(PointerEventData data)
