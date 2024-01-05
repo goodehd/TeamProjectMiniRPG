@@ -6876,6 +6876,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c45590473545a48b44625a071cc15e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnerLv1: {fileID: 0}
+  spawnerLv2: {fileID: 0}
+  skeleton1Prefab: {fileID: 0}
+  skeleton2Prefab: {fileID: 0}
+  musroomPrefab: {fileID: 0}
+  cactusPrefab: {fileID: 0}
+  spawnPositionsLv1: []
 --- !u!1001 &743646177
 PrefabInstance:
   m_ObjectHideFlags: 0
