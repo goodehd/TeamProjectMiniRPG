@@ -8,7 +8,7 @@ namespace Scene
         protected override bool Initialized()
         {
             if (!base.Initialized()) return false;
-            Main.Resource.AllLoadResource<Object>("Preload", (key, loadCount, totalCount) => { 
+            Main.Resource.AllLoadResource<Object>("Intro", (key, loadCount, totalCount) => { 
                 if(loadCount == totalCount) 
                 {
                     UI.SetSceneUI<TestUI>();

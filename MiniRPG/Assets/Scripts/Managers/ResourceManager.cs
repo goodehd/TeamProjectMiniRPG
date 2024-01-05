@@ -121,6 +121,7 @@ namespace Managers
                 {
                     if (_resources.TryGetValue(result.PrimaryKey, out Object resource))
                     {
+                        Debug.Log($"Unload.... {result.PrimaryKey}");
                         Addressables.Release(resource);
                         _resources.Remove(result.PrimaryKey);
                     }

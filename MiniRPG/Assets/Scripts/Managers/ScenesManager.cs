@@ -14,7 +14,7 @@ namespace Managers
         }
         public void LoadNextSceneObject()
         {
-            AsyncOperation sceneLoadOperation = SceneManager.LoadSceneAsync(nextSceneLabel);
+            AsyncOperation sceneLoadOperation = SceneManager.LoadSceneAsync($"{nextSceneLabel}Scene");
             sceneLoadOperation.allowSceneActivation = true;
         }
     }

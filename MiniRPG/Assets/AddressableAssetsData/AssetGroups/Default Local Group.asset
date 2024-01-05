@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Address: TestUI.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Preload
+    - Intro
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7a807467c565254e957ffff150b2a91
     m_Address: SkillTooltip_UI.prefab

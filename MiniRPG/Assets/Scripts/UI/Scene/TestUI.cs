@@ -34,6 +34,7 @@ namespace UI.Scene
         {
 
             string label = "Game";
+            Main.CurrentScene = "Intro";
             Main.NextScene = "Game";
             Main.Scenes.LoadLoadingScene();
 

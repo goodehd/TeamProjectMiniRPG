@@ -89,6 +89,7 @@ MonoBehaviour:
     - default
     - Preload
     - Game
+    - Intro
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: d2edecf63c17dd346b3e5f5ae11f6394, type: 2}
