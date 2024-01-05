@@ -35,12 +35,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Intro
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2dfbb63c9cdf7504faf4ff26b0581598
-    m_Address: MaleCharacterPBR.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Game
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63b6b35b9806eb245a7a847c8f8c30ae
     m_Address: Select_UI.prefab
     m_ReadOnly: 0

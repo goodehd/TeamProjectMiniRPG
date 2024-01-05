@@ -83,4 +83,25 @@ public static class Literals
     public const string SELECT_FEMALE_JOB_TEXT = "Female_JobText";
     public const string SELECT_FEMALE_LV_TEXT = "Female_LvText";
     #endregion
+
+    #region ViliagePrefabsName
+    public static string[] ViliagePrefabNames =
+    {
+        "Buildings",
+        "Path",
+        "Props",
+        "Rocks",
+        "Sky",
+        "Terrain",
+        "Vegetation"
+    };
+
+    public static string[] ViliageNPCNames =
+    {
+        "DungeonNPC",
+        "QuestNPC",
+        "ShopNPC",
+    };
+
+    #endregion
 }
