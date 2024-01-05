@@ -1,5 +1,6 @@
 using UI.Scene;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Scene
 {
@@ -8,13 +9,21 @@ namespace Scene
         protected override bool Initialized()
         {
             if (!base.Initialized()) return false;
-            Main.Resource.AllLoadResource<Object>("Preload", (key, loadCount, totalCount) => { 
-                if(loadCount == totalCount) 
+
+            Object eventSystem = FindObjectOfType<EventSystem>();
+
+            Main.Resource.AllLoadResource<Object>("Preload", (key, loadCount, totalCount) =>
+            {
+                if (loadCount == totalCount)
                 {
-                    UI.SetSceneUI<TestUI>();
+                    if (eventSystem == null) Main.Resource.InstantiatePrefab("EventSystem");
+
+                    UI.SetSceneUI<Intro_UI>();
+
                 }
             });
-            
+            //UI.SetSceneUI<TestUI>();
+
             return true;
         }
     }
