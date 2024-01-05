@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public static class UIEvent
 {
-    public static void SetEvent(this GameObject gameObject, UIEventType uiEventType, Action<PointerEventData> action)
+    public static void SetEvent(this GameObject gameObject, UI_EVENT_TYPE uiEventType, Action<PointerEventData> action)
     {
         UIEventHandler handler = Utility.GetAddComponent<UIEventHandler>(gameObject);
         handler.BindEvent(uiEventType, action);

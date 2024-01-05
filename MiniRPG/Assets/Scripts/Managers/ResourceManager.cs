@@ -11,8 +11,9 @@ namespace Managers
     public class ResourceManager
     {
         public Dictionary<string, Object> _resources;
-
+        public bool LoadBase { get; set; }
         public ResourceManager(){
+            Debug.Log(_resources);
             _resources = new Dictionary<string,Object>();
     }
 
@@ -121,6 +122,7 @@ namespace Managers
                 {
                     if (_resources.TryGetValue(result.PrimaryKey, out Object resource))
                     {
+                        Debug.Log($"Unload.... {result.PrimaryKey}");
                         Addressables.Release(resource);
                         _resources.Remove(result.PrimaryKey);
                     }

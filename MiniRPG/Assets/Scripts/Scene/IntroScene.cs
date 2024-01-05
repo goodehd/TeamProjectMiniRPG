@@ -11,18 +11,18 @@ namespace Scene
             if (!base.Initialized()) return false;
 
             Object eventSystem = FindObjectOfType<EventSystem>();
-
-            Main.Resource.AllLoadResource<Object>("Preload", (key, loadCount, totalCount) =>
+            
+            Main.Resource.AllLoadResource<Object>("Intro", (key, loadCount, totalCount) =>
             {
                 if (loadCount == totalCount)
                 {
                     if (eventSystem == null) Main.Resource.InstantiatePrefab("EventSystem");
 
-                    UI.SetSceneUI<TestUI>();
+                    UI.SetSceneUI<Intro_UI>();
 
                 }
             });
-            //UI.SetSceneUI<TestUI>();
+   
 
             return true;
         }

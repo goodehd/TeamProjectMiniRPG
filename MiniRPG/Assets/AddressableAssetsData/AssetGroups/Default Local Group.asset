@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: b4bf9f77faddf3347bfb22417fe4a12f
   m_SerializeEntries:
-  - m_GUID: dcc982307a817354fafb192abcd9b917
-    m_Address: CactusPA.prefab
+  - m_GUID: 51619bfabb0301f46b7afdda62c5babc
+    m_Address: Loading_UI.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
@@ -29,17 +29,35 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c7a807467c565254e957ffff150b2a91
-    m_Address: SkillTooltip_UI.prefab
+  - m_GUID: 4d3ae17f866024ccf9a0b4df2774ed46
+    m_Address: Intro_UI.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Preload
+    - Intro
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 39c15d41d9c69714d846debbdd1c3bf7
-    m_Address: TestUI.prefab
+  - m_GUID: 2dfbb63c9cdf7504faf4ff26b0581598
+    m_Address: MaleCharacterPBR.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Preload
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63b6b35b9806eb245a7a847c8f8c30ae
+    m_Address: Select_UI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Select
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdbfc2ce6398c93449147572cdd872e4
+    m_Address: PlayerFemale.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Select
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae203a0e3a0466745bbb8f639d28ab14
+    m_Address: PlayerMale.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Select
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}
