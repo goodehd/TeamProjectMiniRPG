@@ -13,6 +13,10 @@ public class MonsterController : MonoBehaviour
     protected int enemyPower = 5;
     protected float followDis = 10f;
     protected float enemyAttackCoolTime = 0.5f;
+
+    protected HealthPoint healthPoint;
+    protected FinalDamage finalDamage;
+
     // 위 몬스터 요소는 추후 SO형식으로 바꿀 예정
     // speed는 적 컴포넌트 nevmeshAgent 컴포넌트에서 설정할 수 있습니다.
 
@@ -89,6 +93,7 @@ public class MonsterController : MonoBehaviour
         anim.SetTrigger("IsAttack");
         Invoke("ResetAttack", enemyAttackCoolTime);
     }
+
     private void ResetAttack()
     {
         Debug.Log("공격다시 가능해집니다.");
@@ -124,6 +129,7 @@ public class MonsterController : MonoBehaviour
         Invoke("DestroyObject", 2f);
         Debug.Log("몬스터가 죽었습니다..");
     }
+
     private void DestroyObject()
     {
         Destroy(gameObject);

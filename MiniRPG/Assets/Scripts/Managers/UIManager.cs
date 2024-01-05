@@ -1,7 +1,9 @@
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
@@ -13,8 +15,6 @@ namespace Managers
         #region Field
         private int _orderByLayer = 1;
         private Stack<PopupUI> _popupStack = new();
-        private List<BaseUI> _subItemList = new();
-        private event Action Open;
 
         private GameObject UIBase
         {
@@ -35,7 +35,6 @@ namespace Managers
         public T SetSceneUI<T>() where T : BaseUI
         {
             string sceneUIName = typeof(T).Name;
-            Debug.Log(sceneUIName);
             return SetUI<T>(sceneUIName, UIBase.transform);
         }
 
@@ -66,7 +65,7 @@ namespace Managers
         }
 
 
-        public void ClosePopup(PopupUI popup, List<UIEventType> eventTypes)
+        public void ClosePopup(PopupUI popup, List<UI_EVENT_TYPE> eventTypes)
         {
             _popupStack.Pop();
             UnbindPopupEvents(popup, eventTypes);
@@ -74,12 +73,12 @@ namespace Managers
             Object.Destroy(popup);
         }
 
-        private void UnbindPopupEvents(PopupUI popup, List<UIEventType> eventTypes)
+        private void UnbindPopupEvents(PopupUI popup, List<UI_EVENT_TYPE> eventTypes)
         {
             UIEventHandler[] eventsHandler = popup.GetComponents<UIEventHandler>();
             foreach (UIEventHandler handler in eventsHandler)
             {
-                foreach (UIEventType eventType in eventTypes)
+                foreach (UI_EVENT_TYPE eventType in eventTypes)
                 {
                     handler.UnbindEvent(eventType);
                 }

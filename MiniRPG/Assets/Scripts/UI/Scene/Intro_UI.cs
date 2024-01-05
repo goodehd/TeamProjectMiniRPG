@@ -27,7 +27,7 @@ public class Intro_UI : BaseUI
     {
         SetUI<Button>();
         _touchBtn = GetUI<Button>(Literals.INTRO_BUTTON);
-        _touchBtn.gameObject.SetEvent(UIEventType.Click, TouchIntroButton);
+        _touchBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, TouchIntroButton);
 
     }
     private void SetupText()
@@ -38,8 +38,10 @@ public class Intro_UI : BaseUI
 
     private void TouchIntroButton(PointerEventData data)
     {
-        //Main.Scenes.LoadLoadingScene();
-        //Main.NextScene = "SelectScene";
+
+        Main.Scenes.NextScene = "Select";
+        Main.Scenes.CurrentScene = "Intro";
+        Main.Scenes.LoadLoadingScene();
         Debug.Log("눌렸음");
         _text.text = "눌려짐";
     }

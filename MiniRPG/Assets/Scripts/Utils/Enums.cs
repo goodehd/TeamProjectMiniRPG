@@ -7,9 +7,17 @@ public enum E_GAME_STATE
     End
 }
 
-public enum UIEventType
+public enum UI_EVENT_TYPE
 {
-    Click, PointerEnter, PointerExit
+    Click,
+    PointerEnter,
+    PointerExit
+}
+
+public enum UI_SELECT_CHARACTER
+{
+    Male,
+    Female
 }
 
 public enum EQuestState
