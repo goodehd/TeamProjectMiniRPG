@@ -11,3 +11,12 @@ public enum UIEventType
 {
     Click, PointerEnter, PointerExit
 }
+
+public enum EQuestState
+{
+    RequirementsNotMet,
+    CanStart,
+    InProgress,
+    CanFinish,
+    Finished
+}
