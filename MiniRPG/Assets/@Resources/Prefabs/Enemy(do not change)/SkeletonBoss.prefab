@@ -834,7 +834,7 @@ GameObject:
   - component: {fileID: 1750875643402524020}
   - component: {fileID: 7222683978818385462}
   m_Layer: 0
-  m_Name: SkeletonFast
+  m_Name: SkeletonBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -849,7 +849,7 @@ Transform:
   m_GameObject: {fileID: 5748980585187862055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.859429, y: 0.01999998, z: 2.3642292}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7376533193423325849}

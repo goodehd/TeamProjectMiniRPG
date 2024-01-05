@@ -9,20 +9,29 @@ public enum DungeonLevel
 
 public class DungeonManager : MonoBehaviour
 {
-    public GameObject spawnerLv1;
-    public GameObject spawnerLv2;
+    /*public GameObject spawnerLv1;
+    public GameObject spawnerLv2;*/
 
-    public GameObject skeleton1Prefab; // 몬스터 프리팹
+    public GameObject skeleton1Prefab;
     public GameObject skeleton2Prefab;
+    public GameObject skeletonBossPrefab;
     public GameObject musroomPrefab;
     public GameObject cactusPrefab;
+    public GameObject mushroomBossPrefab;
 
-    public Transform[] spawnPositionsLv1; // 레벨 1 몬스터 스폰 위치 배열
+    public Transform Lv1_SpawnPosition1;
+    public Transform Lv1_SpawnPosition2;
+    public Transform Lv1_BossPosition;
 
+    public Transform Lv2_SpawnPosition1;
+    public Transform Lv2_SpawnPosition2;
+    public Transform Lv2_BossPosition;
     void Start()
     {
-        // 예시로 Level1을 활성화하고 싶다면 아래와 같이 호출
-        ActivateDungeonLevel(DungeonLevel.Level1);
+
+            ActivateDungeonLevel(DungeonLevel.Level1); 
+
+            //ActivateDungeonLevel(DungeonLevel.Level2); 
     }
 
     void ActivateDungeonLevel(DungeonLevel dungeonLevel)
@@ -30,29 +39,44 @@ public class DungeonManager : MonoBehaviour
         switch (dungeonLevel)
         {
             case DungeonLevel.Level1:
-                StartCoroutine(SpawnMonsters(spawnerLv1, spawnPositionsLv1));
+                Transform[] lv1_SpawnPosition1 = GetSpawnPositions(Lv1_SpawnPosition1);
+                Transform[] lv1_SpawnPosition2 = GetSpawnPositions(Lv1_SpawnPosition2);
+                Transform[] lv1_BossPosition = GetSpawnPositions(Lv1_BossPosition);
+                SpawnMonsters(skeleton1Prefab, lv1_SpawnPosition1);
+                SpawnMonsters(skeleton2Prefab, lv1_SpawnPosition2);
+                SpawnMonsters(skeletonBossPrefab, lv1_BossPosition);
                 break;
             case DungeonLevel.Level2:
-                // Handle Level2 activation here
+                Transform[] lv2_SpawnPosition1 = GetSpawnPositions(Lv2_SpawnPosition1);
+                Transform[] lv2_SpawnPosition2 = GetSpawnPositions(Lv2_SpawnPosition2);
+                Transform[] lv2_BossPosition = GetSpawnPositions(Lv2_BossPosition);
+                SpawnMonsters(musroomPrefab, lv2_SpawnPosition1);
+                SpawnMonsters(cactusPrefab, lv2_SpawnPosition2);
+                SpawnMonsters(mushroomBossPrefab, lv2_BossPosition);
                 break;
-            // Add more cases for additional levels
 
             default:
-                Debug.LogError("Unknown dungeon level");
+                Debug.Log("Unknown dungeon level");
                 break;
         }
     }
-
-    IEnumerator SpawnMonsters(GameObject spawner, Transform[] spawnPositions)
+    Transform[] GetSpawnPositions(Transform parent)
     {
-        spawner.SetActive(true);
+        Transform[] spawnPositions = new Transform[parent.childCount];
 
-        foreach (Transform spawnPosition in spawnPositions)
+        for (int i = 0; i < parent.childCount; i++)
         {
-            Instantiate(skeleton1Prefab, spawnPosition.position, spawnPosition.rotation);
-            yield return new WaitForSeconds(0.5f); // Adjust delay between spawns if needed
+            spawnPositions[i] = parent.GetChild(i);
         }
 
-        spawner.SetActive(false);
+        return spawnPositions;
+    }
+
+    void SpawnMonsters(GameObject monsterPrefab, Transform[] spawnPositions)
+    {
+        foreach (Transform spawnPosition in spawnPositions)
+        {
+            Instantiate(monsterPrefab, spawnPosition.position, spawnPosition.rotation);
+        }
     }
 }
