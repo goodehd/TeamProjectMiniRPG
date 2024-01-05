@@ -27,7 +27,7 @@ public class Intro_UI : BaseUI
     {
         SetUI<Button>();
         _touchBtn = GetUI<Button>(Literals.INTRO_BUTTON);
-        _touchBtn.gameObject.SetEvent(UIEventType.Click, TouchIntroButton);
+        _touchBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, TouchIntroButton);
 
     }
     private void SetupText()
