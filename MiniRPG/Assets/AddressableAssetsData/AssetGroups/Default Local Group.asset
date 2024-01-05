@@ -35,6 +35,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Intro
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dfbb63c9cdf7504faf4ff26b0581598
+    m_Address: MaleCharacterPBR.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}
   m_SchemaSet:

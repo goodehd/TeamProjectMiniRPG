@@ -12,21 +12,37 @@ namespace Scene
         protected UIManager UI;
         private void Start()
         {
-
+            /*
+            Debug.Log("base scene");
             Main.Resource.AllLoadResource<Object>("Preload", (key, count, totalCount) =>
             {
-                if (count < totalCount) return;
+                Debug.Log(count);
+                if (count <totalCount) return;
                 Initialized();
             });
+            */
+
+
+            if (Main.Resource.LoadBase) Initialized();
+            else
+            {
+                Main.Resource.AllLoadResource<Object>("Preload", (key, count, totalCount) =>
+                {
+                    Debug.Log($"[BaseScene] Load asset {key} ({count}/{totalCount})");
+                    if (count < totalCount) return;
+                    Main.Resource.LoadBase = true;
+                    Initialized();
+                });
+            }
 
         }
 
 
         protected virtual bool Initialized()
         {
+
             if (_initialize) return false;
             _initialize = true;
-
             UI = Main.UI;
             return _initialize;
         }

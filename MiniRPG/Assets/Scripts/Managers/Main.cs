@@ -19,8 +19,8 @@ public class Main : SingletonBehavior<Main>
 
     #region Properties
 
-    public static string NextScene { get; set; }
-    public static string CurrentScene { get; set; }
+    //public static string NextScene { get; set; }
+    //public static string CurrentScene { get; set; }
     public static DataManager Data => Instance._data;
     public static GameManager Game => Instance._game;
     public static ItemManager Item => Instance._item;
