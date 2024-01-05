@@ -1,5 +1,7 @@
 using Managers;
+using UI.Scene;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Scene
@@ -17,10 +19,24 @@ namespace Scene
         {
             if (_initialize) return false;
             _initialize = true;
-            
-            // public void AllLoadResource<T>(string label, Action<string,int,int> callback) where T : Object
             UI = Main.UI;
             return _initialize;
         }
     }
+
+    /*
+     private void Awake()
+        {
+            if (Main.Resource.LoadBase) Initialized();
+            else
+            {
+                Main.Resource.AllLoadAsync<Object>("Preload", (key, count, totalCount) =>
+                {
+                    Debug.Log($"[BaseScene] Load asset {key} ({count}/{totalCount})");
+                    if (count < totalCount) return;
+                    Main.Resource.LoadBase = true;
+                    Initialized();
+                });
+            }
+        }*/
 }
