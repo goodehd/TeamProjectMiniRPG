@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c68ceb8cfe4be14796422bf0bdb6951, type: 3}
-  m_Name: SampleItem2
+  m_Name: item2
   m_EditorClassIdentifier: 
-  id: 1
-  itemName: sample2
-  value: 5
+  itemName: item2
+  value: 10
   icon: {fileID: 0}
+  IsUsed: 0

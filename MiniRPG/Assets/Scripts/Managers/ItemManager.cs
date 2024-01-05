@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEditor;
 
 namespace Managers
 {
@@ -11,7 +12,7 @@ namespace Managers
         public List<Item> Items;
         public GameObject InventroyItem;
 
-        public void Init()
+        public ItemManager()
         {
             Items = new List<Item>(); // list 생성 
             SetItemData();
@@ -47,9 +48,20 @@ namespace Managers
 
         private GameObject FindItemTransform()
         {
-            GameObject itemObj = GameObject.Find("Item");
-            if (itemObj == null) itemObj = new GameObject { name = "Item" };
+            GameObject itemObj = GameObject.Find("@Item");
+            if (itemObj == null) itemObj = new GameObject { name = "@Item" };
             return itemObj;
+        }
+
+        public void MakeSOInstance(string name, int value)
+        {
+            Item asset = ScriptableObject.CreateInstance<Item>();
+           
+            asset.itemName = name;
+            asset.value = value;
+            AddItem(asset); 
+            AssetDatabase.CreateAsset(asset, $"Assets/Scripts/Scriptable Object/items/{asset.itemName}.asset");
+            AssetDatabase.Refresh();
         }
 
         
