@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6513059988126619666}
   - component: {fileID: 2365678996761223027}
   m_Layer: 5
-  m_Name: JobText
+  m_Name: Male_JobText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 4258985177447989418}
   - component: {fileID: 8571934873726961196}
   m_Layer: 5
-  m_Name: LvBackGround
+  m_Name: Female_LvBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 2641906963545535978}
   - component: {fileID: 1832721754051009880}
   - component: {fileID: 2219620792868302635}
+  - component: {fileID: 106729304503957847}
   m_Layer: 5
   m_Name: Select_UI
   m_TagString: Untagged
@@ -260,7 +261,7 @@ RectTransform:
   m_Children:
   - {fileID: 3535689009793962901}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -330,6 +331,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &106729304503957847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494387834237232685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38422de5bc7af247bbd0909817ba70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &795018040375475004
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +355,7 @@ GameObject:
   - component: {fileID: 6768581827441798771}
   - component: {fileID: 6236719887598232236}
   m_Layer: 5
-  m_Name: FemaleCharacter
+  m_Name: Female_Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,7 +431,7 @@ GameObject:
   - component: {fileID: 5783810333384897659}
   - component: {fileID: 8718445795654732294}
   m_Layer: 5
-  m_Name: JobBackGround
+  m_Name: Female_JobBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -496,7 +509,7 @@ GameObject:
   - component: {fileID: 8813056125153579029}
   - component: {fileID: 2444841946527539764}
   m_Layer: 5
-  m_Name: LvText
+  m_Name: Male_LvText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -645,7 +658,7 @@ GameObject:
   - component: {fileID: 5582109822913051802}
   - component: {fileID: 1707589085204398623}
   m_Layer: 5
-  m_Name: InfoImage
+  m_Name: Female_InfoImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -801,7 +814,7 @@ GameObject:
   - component: {fileID: 7525351924681047777}
   - component: {fileID: 2460315209544976866}
   m_Layer: 5
-  m_Name: LvBackGround
+  m_Name: Male_LvBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -879,7 +892,7 @@ GameObject:
   - component: {fileID: 2528809533636144307}
   - component: {fileID: 5224963454884019116}
   m_Layer: 5
-  m_Name: JobText
+  m_Name: Female_JobText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -933,7 +946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC804 \uC0AC"
+  m_text: "\uB9C8 \uBC95 \uC0AC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f411336ae99839e4194fb0e8ad03aaaa, type: 2}
   m_sharedMaterial: {fileID: 7446818958109733905, guid: f411336ae99839e4194fb0e8ad03aaaa, type: 2}
@@ -1028,7 +1041,7 @@ GameObject:
   - component: {fileID: 7815473184225260616}
   - component: {fileID: 7337231460582086636}
   m_Layer: 5
-  m_Name: FemaleSelect
+  m_Name: Female_Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1106,7 +1119,7 @@ GameObject:
   - component: {fileID: 2744691178372025475}
   - component: {fileID: 5915338148968512615}
   m_Layer: 5
-  m_Name: MaleSelect
+  m_Name: Male_Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1184,7 +1197,7 @@ GameObject:
   - component: {fileID: 8534991482830415171}
   - component: {fileID: 7962603371981401975}
   m_Layer: 5
-  m_Name: JobBackGround
+  m_Name: Male_JobBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1261,7 +1274,7 @@ GameObject:
   - component: {fileID: 2112766491056075588}
   - component: {fileID: 6416174888384903355}
   m_Layer: 5
-  m_Name: InfoImage
+  m_Name: Male_InfoImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1339,7 +1352,7 @@ GameObject:
   - component: {fileID: 7270975738550281651}
   - component: {fileID: 3635699067035385145}
   m_Layer: 5
-  m_Name: MaleCharacter
+  m_Name: Male_Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1416,7 +1429,7 @@ GameObject:
   - component: {fileID: 7002357890868394567}
   - component: {fileID: 252173586608930100}
   m_Layer: 5
-  m_Name: LvText
+  m_Name: Female_LvText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
