@@ -35,7 +35,6 @@ namespace Managers
         public T SetSceneUI<T>() where T : BaseUI
         {
             string sceneUIName = typeof(T).Name;
-            Debug.Log(sceneUIName);
             return SetUI<T>(sceneUIName, UIBase.transform);
         }
 
