@@ -113,6 +113,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Viliage
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c746d850ea8a06c43b28ed283e66b3b0
+    m_Address: InventoryUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 550e87c1d94049b40b7408c96b6337c5
+    m_Address: ItemSlotUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}
   m_SchemaSet:
