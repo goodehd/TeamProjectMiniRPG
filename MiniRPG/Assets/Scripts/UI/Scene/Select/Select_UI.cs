@@ -29,6 +29,8 @@ public class Select_UI : BaseUI
     PlayerMale _playerMale;
     PlayerFemale _playerFemale;
 
+    UI_SELECT_CHARACTER _characterType;
+
     protected override bool Initialized()
     {
         if (!base.Initialized()) return false;
@@ -106,7 +108,8 @@ public class Select_UI : BaseUI
 
     private void SelectedCharacter(UI_SELECT_CHARACTER character)
     {
-        if(character == UI_SELECT_CHARACTER.Male)
+        _characterType = character;
+        if (_characterType == UI_SELECT_CHARACTER.Male)
         {
             _playerMale.SetSelectTrue();
             _playerFemale.SetSelectFalse();
@@ -120,7 +123,8 @@ public class Select_UI : BaseUI
 
     private void StartButton(PointerEventData data)
     {
-        Main.Scenes.NextScene = "Game";
+        Main.Game.CurrentCharacterType = _characterType;
+        Main.Scenes.NextScene = "Viliage";
         Main.Scenes.CurrentScene = "Select";
         Main.Scenes.LoadLoadingScene();
     }

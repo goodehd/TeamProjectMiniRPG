@@ -11,6 +11,8 @@
 /// </summary>
 public static class Literals
 {
+    public const float ZeroF = 0f;
+    
     public const string INTRO_SPRITE = "IntroSprite";
     public const string INTRO_STARTBTN = "StartBtn;";
     public const string INTRO_STARTBTN_TEXT = "StartText";
@@ -80,5 +82,36 @@ public static class Literals
     public const string SELECT_MALE_LV_TEXT = "Male_LvText";
     public const string SELECT_FEMALE_JOB_TEXT = "Female_JobText";
     public const string SELECT_FEMALE_LV_TEXT = "Female_LvText";
+    #endregion
+
+    #region UI_Inventory
+    public const string ITEMSLOT_ITEMSLOT_BUTTON = "ItemSlotUI";
+    public const string ITEMSLOT_ITEMICON_TRANSFORM = "ItemIcon";
+    public const string ITEMSLOT_EQUIPMARK_TRANSFORM = "EquipMark";
+
+    public const string INVENTORY_INVENTORY_TRANSFORM = "Inventory";
+    public const string INVENTORY_EXIT_BUTTON = "ExitBtn";
+
+    #endregion
+
+    #region ViliagePrefabsName
+    public static string[] ViliagePrefabNames =
+    {
+        "Buildings",
+        "Path",
+        "Props",
+        "Rocks",
+        "Sky",
+        "Terrain",
+        "Vegetation"
+    };
+
+    public static string[] ViliageNPCNames =
+    {
+        "DungeonNPC",
+        "QuestNPC",
+        "ShopNPC",
+    };
+
     #endregion
 }
