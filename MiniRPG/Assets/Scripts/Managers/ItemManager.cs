@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 using UnityEditor;
+
+
 
 namespace Managers
 {
@@ -26,8 +27,11 @@ namespace Managers
         {
             Items.Remove(item);
         }
-        
-        private void SetItemData() 
+        public static Item GetAddComponent<Item>(GameObject obj) where Item : Component
+        {
+            return obj.GetComponent<Item>() ?? obj.AddComponent<Item>();
+        }
+        public void SetItemData() 
         {
             Debug.Log("set item");
             if (Items.Count != 0 )
@@ -35,16 +39,14 @@ namespace Managers
                 Transform transform = FindItemTransform().transform;
                 foreach (var item in Items)
                 {
-                    GameObject obj = Main.Resource.InstantiatePrefab(item.itemName, transform);
-                    var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
-                    var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
-
-                    itemName.text = item.itemName;
-                    itemIcon.sprite = item.icon;
+                    GameObject obj = Main.Resource.InstantiatePrefab("Item", transform);
+                  
+ 
                     
                 }
             }
         }
+
 
         private GameObject FindItemTransform()
         {
