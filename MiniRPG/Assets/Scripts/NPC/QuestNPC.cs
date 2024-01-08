@@ -18,10 +18,6 @@ public class QuestNPC : MonoBehaviour, IInteractable
 
         // 퀘스트 매니저나 데이터 매니저에서 퀘스트 고유 번호로 퀘스트를 가져오는 작업이 필요
 
-        // 테스트용
-        quests.Add(new Quest("정훈님 어디?", "어디갔어어디갔어어디갔어어디갔어어디갔어어디갔어"));
-        quests.Add(new Quest("정훈님 지각?", "지각지각지각지각지각지각지각지각지각지각지각지각"));
-        quests.Add(new Quest("완성 가능한가?", "어라?어라?어라?어라?어라?어라?어라?어라?어라?어라?"));
 
         return quests;
     }
@@ -35,7 +31,7 @@ public class QuestNPC : MonoBehaviour, IInteractable
     public void OnInteractable()
     {
         QuestUI Q_UI = Main.UI.OpenPopup<QuestUI>();
-        Q_UI.SetQuestList(_quests);
+        Q_UI.SetQuestList(Main.Quest.quests);
     }
 
     public void OnInteractableExit()

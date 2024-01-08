@@ -38,6 +38,8 @@ public class MainSceneUI : BaseUI
         SetupObj();
 
         SetPlayerInfo();
+        Main.Quest.SetQuestList();
+
         return true;
     }
 
@@ -68,14 +70,18 @@ public class MainSceneUI : BaseUI
     {
         foreach (Transform quest in _contents.transform)
         {
-            Destroy(quest);
+            Destroy(quest.gameObject);
         }
 
         for(int i = 0; i < quests.Count; i++)
         {
             GameObject go = Main.Resource.InstantiatePrefab("QuestGoalTextUI", _contents.transform);
             string de = quests[i].GetGoalDescription();
-            go.GetComponent<QuestGoalTextUI>().SetText(de);
+            QuestGoalTextUI script = go.GetComponent<QuestGoalTextUI>();
+            if (quests[i].State == EQuestState.CanFinish)
+                script.SetTextColor(Color.green);
+            script.SetText(de);
+
         }
     }
 

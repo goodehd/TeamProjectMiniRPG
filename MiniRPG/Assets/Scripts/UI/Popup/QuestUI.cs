@@ -33,17 +33,29 @@ public class QuestUI : PopupUI
         SetupText();
         SetupGameObject();
 
-        for(int i = 0; i < _quests.Count; ++i)
+        SetQuestInfo();
+        _infos.gameObject.SetActive(false);
+
+        return true;
+    }
+
+    public void SetQuestInfo()
+    {
+        foreach(Transform questBtn  in _questList)
         {
+            Destroy(questBtn.gameObject);
+        }
+
+        for (int i = 0; i < _quests.Count; ++i)
+        {
+            if (_quests[i].State == EQuestState.RequirementsNotMet)
+                continue;
+
             GameObject btn = Main.Resource.InstantiatePrefab("QuestBtn", _questList.transform);
             QuestButton btnScrip = btn.GetComponent<QuestButton>();
             btnScrip.SetQuest(_quests[i]);
             btnScrip.SetOwner(this);
         }
-
-        _infos.gameObject.SetActive(false);
-
-        return true;
     }
 
     public void SetQuestList(List<Quest> quests)
@@ -126,6 +138,7 @@ public class QuestUI : PopupUI
     private void AcceptBtnClick(PointerEventData data)
     {
         _selectQuests.State = EQuestState.InProgress;
+        _selectQuests.StartQuest();
         Main.Quest.StartQuest(_selectQuests);
         SetQuestInfo(_selectQuests);
     }
@@ -133,12 +146,14 @@ public class QuestUI : PopupUI
     private void GiveUpBtnClick(PointerEventData data)
     {
         _selectQuests.State = EQuestState.CanStart;
-        Main.Quest.GiveUPQuest(_selectQuests);
+        _selectQuests.GiveupQuest();
+        Main.Quest.DelUPQuest(_selectQuests);
         SetQuestInfo(_selectQuests);
     }
 
     private void CompletionBtnClick(PointerEventData data)
     {
-
+        _selectQuests.FinishQuest();
+        SetQuestInfo();
     }
 }

@@ -7,6 +7,8 @@ using UnityEngine;
 public class QuestGoalTextUI : BaseUI
 {
     private TextMeshProUGUI _goalText;
+    private string _text;
+    private Color _textColor = Color.white;
 
     protected override bool Initialized()
     {
@@ -14,18 +16,26 @@ public class QuestGoalTextUI : BaseUI
 
         SetupText();
 
+        _goalText.text = _text;
+        _goalText.color = _textColor;
+
         return true;
     }
 
     public void SetText(string text)
     {
-        _goalText.text = text;
+        _text = text;
+    }
+
+    public void SetTextColor(Color color)
+    {
+        _textColor = color;
     }
 
     private void SetupText()
     {
         SetUI<TextMeshProUGUI>();
 
-        _goalText = GetUI<TextMeshProUGUI>("QuestGoalText");
+        _goalText = GetUI<TextMeshProUGUI>("QuestGoalTextUI");
     }
 }

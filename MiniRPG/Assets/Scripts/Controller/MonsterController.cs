@@ -145,6 +145,8 @@ public class MonsterController : MonoBehaviour
 
         Invoke("DestroyObject", 2f);
         Debug.Log("몬스터가 죽었습니다..");
+
+        Main.Quest.OnMonsterDieIventInvoke(this);
     }
 
     private void DestroyObject()
