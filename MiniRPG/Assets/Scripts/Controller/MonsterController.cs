@@ -6,6 +6,7 @@ public class MonsterController : MonoBehaviour
     private Animator anim;
     private Transform playerTransform;
     private NavMeshAgent nav;
+    private PlayerData playerData;
 
     //[SerializeField]
     protected int maxHealth = 20;
@@ -36,6 +37,7 @@ public class MonsterController : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         curHealth = maxHealth;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerData = Main.Game.Player.GetComponent<PlayerController>().Player.PlayerData;
     }
 
     void Update()
@@ -85,7 +87,8 @@ public class MonsterController : MonoBehaviour
 
     private void MonsterAttack(Collision other) // 몬스터가 공격하는 부분
     {
-        // other.gameObject.GetComponent<PlayerStatHandler>()?.Hit((float)enemyPower);
+        playerData.Hp.SubValue(50);
+        Main.UI.SceneUI.GetComponent<MainSceneUI>().SetPlayerInfo();
         isAttacking = true;
         nav.isStopped = true;
         anim.SetTrigger("IsAttack");

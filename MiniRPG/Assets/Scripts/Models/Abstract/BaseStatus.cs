@@ -141,6 +141,7 @@ public abstract class BaseStatus : IStatus
         
         _curValue = newCurValue;
         _maxValue = newMaxValue;
+        Debug.Log(_curValue + " " + _maxValue);
         // OnValueChanged?.Invoke(_curValue, _maxValue);
     }
 
