@@ -7,12 +7,13 @@ public class DungeonData
     public string DungeonDescripts;
 
     public string DungeonSceneName;
-
-    public DungeonData(string privewImageKey, string dungeonName, string dungeonDescripts)
+    
+    public DungeonData(string privewImageKey, string dungeonName, string dungeonDescripts, string dungeonSceneName)
     {
         PrivewImageKey = privewImageKey;
         DungeonName = dungeonName;
         DungeonDescripts = dungeonDescripts;
+        DungeonSceneName = dungeonSceneName;
     }
 
     public DungeonData() { }

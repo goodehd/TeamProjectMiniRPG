@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Unity.UI;
 
 public enum DungeonLevel
 {
@@ -26,11 +27,27 @@ public class DungeonManager : MonoBehaviour
     public Transform Lv2_SpawnPosition1;
     public Transform Lv2_SpawnPosition2;
     public Transform Lv2_BossPosition;
+
+    public GameObject panel;
+
     void Start()
     {
-            ActivateDungeonLevel(DungeonLevel.Level1); 
+        if (Main.Game.Level == DungeonLevel.Level1)
+        {
+            ActivateDungeonLevel(DungeonLevel.Level1);
+        }
+        else if (Main.Game.Level == DungeonLevel.Level2)
+        {
+            ActivateDungeonLevel(DungeonLevel.Level2); 
+        }
+    }
 
-            //ActivateDungeonLevel(DungeonLevel.Level2); 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            panel.SetActive(true);
+        }
     }
 
     void ActivateDungeonLevel(DungeonLevel dungeonLevel)
@@ -77,5 +94,11 @@ public class DungeonManager : MonoBehaviour
         {
             Instantiate(monsterPrefab, spawnPosition.position, spawnPosition.rotation);
         }
+    }
+
+    public void BackToTown()
+    {
+        Main.Scenes.NextScene = "Viliage";
+        Main.Scenes.LoadLoadingScene();
     }
 }
