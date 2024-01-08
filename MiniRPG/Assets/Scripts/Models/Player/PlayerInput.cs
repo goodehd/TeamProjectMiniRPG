@@ -11,9 +11,7 @@ public class PlayerInput : MonoBehaviour
     public event Action<Vector2> OnAttack;
 
     #endregion
-    
-    
-    
+
     #region Properties
 
     public PlayerInputAction PlayerInputAction { get; private set; }
