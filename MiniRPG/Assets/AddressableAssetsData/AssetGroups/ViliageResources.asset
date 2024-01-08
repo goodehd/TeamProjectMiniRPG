@@ -139,6 +139,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Viliage
+    - Dungeon
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}
