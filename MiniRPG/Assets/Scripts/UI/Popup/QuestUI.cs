@@ -59,8 +59,8 @@ public class QuestUI : PopupUI
 
         _questName.text = info.Questname;
         _questDescript.text = info.Description;
-        _questGoal.text = info.GoalDescription;
-        _questReward.text = info.RewardDescription;
+        _questGoal.text = info.GetGoalDescription();
+        _questReward.text = info.GetRewardString();
 
         SetBtnActiveFalse();
 

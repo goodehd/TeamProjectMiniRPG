@@ -9,64 +9,46 @@ public class Quest : IGameData<string>
 
     public string Questname;
     public string Description;
-    public string GoalDescription;
-    public string RewardDescription;
 
+    public string TargetName;
     public int KillCount;
     public int KillToComplete;
 
     public int Gold;
     public int Experience;
 
-    public Quest(string name, string des, string goal, string rewad)
+    public Quest(string name, string des)
     {
         Questname = name;
         Description = des;
-        GoalDescription = goal;
-        RewardDescription = rewad;
+
+        Key = Questname;
     }
 
-    //public QuestInfoSO Info;
-    //public EQuestState State;
-    //private int currentQuestStepIndex;
+    public void StartQuest()
+    {
 
-    //public Quest(QuestInfoSO info)
-    //{
-    //    Info = info;
-    //    State = EQuestState.RequirementsNotMet;
-    //    currentQuestStepIndex = 0;
-    //}
+    }
 
-    //public void MoveToNextStep()
-    //{
-    //    currentQuestStepIndex++;
-    //}
+    public void FinishQuest()
+    {
 
-    //public bool CurrentStepExists()
-    //{
-    //    return currentQuestStepIndex >= Info.QuestStepPrefabs.Length;
-    //}
+    }
 
-    //public void InstantiateCurrentQuestStep(Transform parentTransform)
-    //{
-    //    GameObject questStep = GetCurrentQuestStepPrefab();
-    //    if (questStep != null)
-    //    {
-    //        Object.Instantiate<GameObject>(questStep, parentTransform);
-    //    }
-    //}
+    public string GetGoalDescription()
+    {
+        string goalstr = $"{TargetName}을 {KillCount} / {KillToComplete} 마리 잡기";
+        return goalstr;
+    }
 
-    //private GameObject GetCurrentQuestStepPrefab()
-    //{
-    //    GameObject questStep = null;
-    //    if (CurrentStepExists())
-    //    {
-    //        questStep = Info.QuestStepPrefabs[currentQuestStepIndex];
-    //    }
-    //    else
-    //    {
-    //        //경고
-    //    }
-    //    return questStep;
-    //}
+    public string GetRewardString()
+    {
+        string rewardstr = $"골드 : {Gold} G, 경험치 {Experience} EXP";
+        return rewardstr;
+    }
+
+    private void AdvanceQuest(MonsterController monster)
+    {
+
+    }
 }

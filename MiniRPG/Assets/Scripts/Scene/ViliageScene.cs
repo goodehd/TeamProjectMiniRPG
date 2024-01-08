@@ -21,10 +21,12 @@ public class ViliageScene : BaseScene
 
     private void CreateEnviorment()
     {
-        for(int i = 0; i < Literals.ViliagePrefabNames.Length; ++i)
-        {
-            Main.Resource.InstantiatePrefab(Literals.ViliagePrefabNames[i]);
-        }
+        //for(int i = 0; i < Literals.ViliagePrefabNames.Length; ++i)
+        //{
+        //    Main.Resource.InstantiatePrefab(Literals.ViliagePrefabNames[i]);
+        //}
+        Main.Resource.InstantiatePrefab("Map");
+        Main.Resource.InstantiatePrefab("Sky");
     }
 
     private void CreateNPC()
