@@ -107,9 +107,8 @@ public class MonsterController : MonoBehaviour
     {
         damage = 10; // 임시 데미지
         curHealth -= (int)damage;
-        if (!isDead && !isAttacked)
+        if (!isDead)
         {
-            isAttacked = true;
             if (curHealth > 0)
             {
                 Debug.Log("몬스터가 공격 받았습니다.");
@@ -122,7 +121,7 @@ public class MonsterController : MonoBehaviour
                 Die();
                 Debug.Log("몬스터가 죽었습니다.");
             }
-            Invoke("ResetAttacked", 0.8f);
+            //Invoke("ResetAttacked", 0.8f);
         }
     }
 
