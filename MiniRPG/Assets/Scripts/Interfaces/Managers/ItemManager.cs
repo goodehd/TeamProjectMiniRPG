@@ -46,8 +46,6 @@ namespace Managers
                 }
             }
         }
-
-
         public static T GetAddComponent<T>(GameObject obj) where T : Component
         {
             return obj.GetComponent<T>() ?? obj.AddComponent<T>();
