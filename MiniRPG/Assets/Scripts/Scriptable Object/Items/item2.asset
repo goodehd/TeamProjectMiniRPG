@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: item2
   value: 10
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 484708ad00772824c8ff678c35cd3ded, type: 3}
   IsUsed: 0
   itemType: 0
+  description: "\uC544\uC774\uD15C 2 \uC124\uBA85"

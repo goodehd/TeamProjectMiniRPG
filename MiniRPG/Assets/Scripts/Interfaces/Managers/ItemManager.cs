@@ -70,6 +70,5 @@ namespace Managers
             AssetDatabase.Refresh();
         }
 
-        
     }
 }
