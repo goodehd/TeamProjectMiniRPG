@@ -64,6 +64,8 @@ namespace Managers
             asset.itemName = name;
             asset.value = value;
             AddItem(asset); 
+            Main.Inventory.AddItem(asset);
+
             AssetDatabase.CreateAsset(asset, $"Assets/Scripts/Scriptable Object/items/{asset.itemName}.asset");
             AssetDatabase.Refresh();
         }
