@@ -14,6 +14,7 @@ public class Main : SingletonBehavior<Main>
     private readonly UIManager _ui = new();
     private readonly InventoryManager _inventory = new();
     private readonly QuestManager _quest = new();
+    private readonly EntityManager _entity = new();
 
     #endregion
 
@@ -32,5 +33,7 @@ public class Main : SingletonBehavior<Main>
     public static UIManager UI => Instance._ui;
     public static InventoryManager Inventory => Instance._inventory;
     public static QuestManager Quest => Instance._quest;
+    public static EntityManager Entity => Instance._entity;
+
     #endregion
 }

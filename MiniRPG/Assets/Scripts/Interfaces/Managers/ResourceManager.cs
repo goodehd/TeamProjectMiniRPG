@@ -129,7 +129,6 @@ namespace Managers
                         Addressables.Release(resource);
                         _resources.Remove(result.PrimaryKey);
                     }
-     
                 }
             };
         }
