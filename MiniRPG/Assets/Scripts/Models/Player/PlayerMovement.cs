@@ -12,7 +12,9 @@ public class PlayerMovement
     private float _velocity;
     
     private Vector2 _screenPosition;
-    
+
+    private Animator _playerAnimator;
+
     // Nav Mesh
     private NavMeshPath _path;
     private int _currentPathIndex;
@@ -49,7 +51,8 @@ public class PlayerMovement
         _playerController = playerController;
         _playerInput = _playerController.Input;
         _characterController = _playerController.Controller;
-        
+        _playerAnimator = playerController.Animator;
+
         _movementSpeed = _playerController.Player.PlayerData.MoveSpd.Value;
     }
 
@@ -117,7 +120,10 @@ public class PlayerMovement
         else
         {
             SmoothSpeed(Literals.ZeroF);
+
+            _playerAnimator.SetBool("IsWalking", false);
         }
+        
     }
     
     private void RotationProcess()
@@ -177,6 +183,8 @@ public class PlayerMovement
 
     private void InputEventScreenPosition(Vector2 screenPosition)
     {
+        _playerAnimator.SetBool("IsWalking", true); // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
         _screenPosition = screenPosition;
         
         var ray = _playerController.MainCamera.ScreenPointToRay(_screenPosition);

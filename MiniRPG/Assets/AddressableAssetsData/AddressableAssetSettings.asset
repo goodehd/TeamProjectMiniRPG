@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: b4bf9f77faddf3347bfb22417fe4a12f
   m_currentHash:
     serializedVersion: 2
-    Hash: 88d4783723b30376f19098b6a2942ccd
+    Hash: fceed08eae2a1c929a00a62925f94ec5
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
     m_Id: 
   m_RemoteCatalogLoadPath:
     m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: 8d39f8d282ef4ed45bdf2230d2ad4d13, type: 2}
   - {fileID: 11400000, guid: b869ca74806b85e49a977b69e8f77c0b, type: 2}
+  - {fileID: 11400000, guid: ad68509e1bc761548a4c27f192553593, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -91,6 +92,7 @@ MonoBehaviour:
     - Game
     - Intro
     - Select
+    - Viliage
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: d2edecf63c17dd346b3e5f5ae11f6394, type: 2}

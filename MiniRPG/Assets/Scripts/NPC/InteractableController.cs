@@ -29,5 +29,16 @@ public class InteractableController : MonoBehaviour
         {
             _curInteractable.OnInteractable();
         }
+        else if (Input.GetKeyDown(KeyCode.I) && !Main.Inventory._inventoryOpend)
+        {
+            Debug.Log(Main.Inventory);
+            Main.Inventory.OpenInventory();
+        }
+        else if ((Input.GetKeyDown(KeyCode.Escape) || (Input.GetKeyDown(KeyCode.I)))
+            && Main.Inventory._inventoryOpend)
+        {
+            Main.Inventory.CloseInventory();
+        }
+
     }
 }

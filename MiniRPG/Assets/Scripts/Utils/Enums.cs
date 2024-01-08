@@ -19,3 +19,12 @@ public enum UI_SELECT_CHARACTER
     Male,
     Female
 }
+
+public enum EQuestState
+{
+    RequirementsNotMet,
+    CanStart,
+    InProgress,
+    CanFinish,
+    Finished
+}

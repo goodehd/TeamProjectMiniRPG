@@ -35,12 +35,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Intro
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2dfbb63c9cdf7504faf4ff26b0581598
-    m_Address: MaleCharacterPBR.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Game
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63b6b35b9806eb245a7a847c8f8c30ae
     m_Address: Select_UI.prefab
     m_ReadOnly: 0
@@ -58,6 +52,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Select
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01b7083ad49e66a4e8f47c3dd33529d7
+    m_Address: Item.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}

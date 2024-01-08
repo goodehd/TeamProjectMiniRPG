@@ -9,8 +9,6 @@ namespace Scene
 
         protected override bool Initialized()///
         {
-
-
             if (!base.Initialized()) 
             {
                 Debug.Log("if");
@@ -27,14 +25,12 @@ namespace Scene
        
         private void LoadResourcesForNextScene(string nextSceneLabel)
         {
-      
             Main.Resource.UnloadAllAsync<Object>(Main.Scenes.CurrentScene);
             Main.Resource.AllLoadResource<Object>(Main.Scenes.NextScene, (key, currentCount, totalCount) =>
             {
-                Debug.Log($"Loading....{key}");
-                if (currentCount == totalCount)
+                //Debug.Log($"Loading....{key}");
+                if (currentCount >= totalCount)
                     Main.Scenes.LoadNextSceneObject(); ;
-
             });
         }
     }

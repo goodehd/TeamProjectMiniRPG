@@ -9,6 +9,7 @@ namespace UI
     public class BaseUI : MonoBehaviour
     {
         protected UIManager UI;
+        protected InventoryManager Inventory;
         protected ResourceManager Resource;
         protected SoundManager Sound;
         private bool _initialized;
@@ -19,6 +20,7 @@ namespace UI
             if (_initialized) return false;
             _initialized = true;
             UI = Main.UI;
+            Inventory = Main.Inventory;
             Resource = Main.Resource;
             Sound = Main.Sound;
             return _initialized;

@@ -12,9 +12,7 @@ public class PlayerInput : MonoBehaviour
     public event Action OnAttackTimer;
 
     #endregion
-    
-    
-    
+
     #region Properties
 
     public PlayerInputAction PlayerInputAction { get; private set; }

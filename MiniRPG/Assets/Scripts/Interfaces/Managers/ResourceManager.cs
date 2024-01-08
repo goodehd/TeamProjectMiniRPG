@@ -13,7 +13,6 @@ namespace Managers
         public Dictionary<string, Object> _resources;
         public bool LoadBase { get; set; }
         public ResourceManager(){
-            Debug.Log(_resources);
             _resources = new Dictionary<string,Object>();
     }
 
@@ -83,7 +82,8 @@ namespace Managers
             }
             else if (key.Contains(".sprite")) //sprite
             {
-                loadKey = $"{key}[{key.Replace(".sprite", "")}]";
+                //[{key.Replace(".sprite", "")}]
+                loadKey = $"{key}";
                 AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(loadKey);
                 HandlerCallbackFunction(loadKey, handle, callback as Action<Sprite>);
 
@@ -106,10 +106,13 @@ namespace Managers
             GameObject resource = Load<GameObject>($"{path}.prefab");  
             if (resource == null)
             {
-                Debug.LogError($"Failed to load Prefab: {path}");
+                Debug.LogError($"Failed to load Prefab: {path}.prefab");
                 return null;
             }
-            return Object.Instantiate(resource, transform);
+            GameObject go = Object.Instantiate(resource, transform);
+            go.name = resource.name;
+
+            return go;
         }
 
 
