@@ -11,7 +11,7 @@ namespace Managers
 {
     public class InventoryManager 
     {
-        public Dictionary<string, Object> _inventory;
+        public Dictionary<string, Item> _inventory;
         public int _inventoryCount;
         public bool _inventoryOpend = false;
 
@@ -23,19 +23,20 @@ namespace Managers
 
         public InventoryManager()
         {
+            _inventory = new Dictionary<string, Item>();
             _inventoryCount = 12;
         }
 
 
-        public void AddItem(Object item)
+        public void AddItem(Item item)
         {
             string itemName = item.name;
-            _inventory.Add(itemName, item);
+            _inventory. TryAdd(itemName, item);
 
             if (_inventory.Count > _inventoryCount) _inventoryCount = _inventory.Count;
         }
 
-        public void DelItem(Object item)
+        public void DelItem(Item item)
         {
             string itemName = item.name;
             _inventory.Remove(itemName);

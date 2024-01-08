@@ -46,9 +46,12 @@ public class InventoryUI : PopupUI
         for (int i = 0; i < Inventory._inventoryCount; i++)
         {
             ItemSlotUI _slot = UI.SetSubItemUI<ItemSlotUI>(_inventory);
+            _slot.Init();
             Inventory.itemSlots.Add(_slot);
+            
         }
 
+        
         SetupItemIcon();
     }
 
@@ -57,7 +60,8 @@ public class InventoryUI : PopupUI
         if (Inventory._inventory == null) return;
         foreach (var item in Inventory._inventory)
         {
-            Inventory.itemSlots[_itemCount].SetupItem();
+            Debug.Log(Inventory.itemSlots.Count);
+            Inventory.itemSlots[_itemCount].SetupItem(item.Value);
             _itemCount++;
         }
     }
@@ -75,6 +79,7 @@ public class InventoryUI : PopupUI
         List<UI_EVENT_TYPE> inventoryEventList;
         (inventoryPopupUI, inventoryEventList) = CloseInventoryValue();
 
+        Inventory.itemSlots.Clear();
         UI.ClosePopup(inventoryPopupUI, inventoryEventList);
     }
 

@@ -88,9 +88,29 @@ public static class Literals
     public const string ITEMSLOT_ITEMSLOT_BUTTON = "ItemSlotUI";
     public const string ITEMSLOT_ITEMICON_TRANSFORM = "ItemIcon";
     public const string ITEMSLOT_EQUIPMARK_TRANSFORM = "EquipMark";
+    public const string ITEMSLOT_ITEMICON_IMAGE = "ItemIcon";
 
     public const string INVENTORY_INVENTORY_TRANSFORM = "Inventory";
     public const string INVENTORY_EXIT_BUTTON = "ExitBtn";
+
+    #endregion
+
+    #region UI_Shop
+    public const string SHOP_ITEMLIST_TRANSFORM = "Shop";
+    public const string SHOP_ITEMINFO_TRANSFORM = "ItemInfo";
+
+    public const string SHOP_ITEMICON_IMAGE = "ItemIcon";
+    
+    public const string SHOP_ITEMNAME_TEXT = "ItemNameText";
+    public const string SHOP_ITEMDESCRIPT_TEXT = "ItemDescriptText";
+
+    public const string SHOP_ITEMBUY_BUTTON = "BuyBtn";
+    public const string SHOP_EXIT_BUTTON = "ExitBtn";
+
+    public const string SHOP_ITEMSLOT_ICON_IMAGE = "ShopItemIcon";
+    public const string SHOP_ITEMSLOT_NAME_TEXT = "ShopItemText";
+    public const string SHOP_ITEMSLOT_BUTTON = "ShopItemSlotUI";
+
 
     #endregion
 

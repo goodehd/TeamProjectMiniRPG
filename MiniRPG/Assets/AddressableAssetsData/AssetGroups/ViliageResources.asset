@@ -141,6 +141,18 @@ MonoBehaviour:
     - Viliage
     - Dungeon
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 998af0747d75f0b49ba9309ead1ea847
+    m_Address: ShopUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e46be391767b05e48934e95a813e5de9
+    m_Address: ShopItemSlotUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}
   m_SchemaSet:
