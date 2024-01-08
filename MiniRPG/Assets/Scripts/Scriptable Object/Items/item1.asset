@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c68ceb8cfe4be14796422bf0bdb6951, type: 3}
   m_Name: item1
   m_EditorClassIdentifier: 
-  itemName: item1
-  value: 10
-  icon: {fileID: 0}
+  itemName: manapotion
+  value: 20
+  icon: {fileID: 21300008, guid: ddf8838d0a06d8d4c9dec9e3bed69260, type: 3}
   IsUsed: 0
   itemType: 0
