@@ -1,6 +1,8 @@
+using Managers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Pool;
@@ -8,7 +10,6 @@ using UnityEngine.UI;
 
 public class InventoryUI : PopupUI
 {
-    private List<ItemSlotUI> _slots;
     private int _itemCount = 0;
 
     private Transform _inventory;
@@ -42,33 +43,49 @@ public class InventoryUI : PopupUI
 
     private void SetupItemSlot()
     {
-        for (int i = 0; i < Main.Inventory._inventoryCount; i++)
+        for (int i = 0; i < Inventory._inventoryCount; i++)
         {
             ItemSlotUI _slot = UI.SetSubItemUI<ItemSlotUI>(_inventory);
-            _slots.Add(_slot);
+            Inventory.itemSlots.Add(_slot);
         }
 
-        //SetupItemIcon();
+        SetupItemIcon();
     }
 
     private void SetupItemIcon()
     {
-        foreach(var item in Main.Inventory._inventory)
+        if (Inventory._inventory == null) return;
+        foreach (var item in Inventory._inventory)
         {
-            _slots[_itemCount].SetupItem();
+            Inventory.itemSlots[_itemCount].SetupItem();
             _itemCount++;
         }
     }
 
     private void ExitBtnClick(PointerEventData data)
     {
-        List<UI_EVENT_TYPE> eventTypes = new List<UI_EVENT_TYPE> { UI_EVENT_TYPE.Click };
-        Main.Inventory._inventoryOpend = false;
-        UI.ClosePopup(this, eventTypes);
+        CloseInventory();
     }
 
+    public void CloseInventory()
+    {
+        Inventory._inventoryOpend = false;
 
-    public Transform GetInventory() 
+        PopupUI inventoryPopupUI;
+        List<UI_EVENT_TYPE> inventoryEventList;
+        (inventoryPopupUI, inventoryEventList) = CloseInventoryValue();
+
+        UI.ClosePopup(inventoryPopupUI, inventoryEventList);
+    }
+
+    private (PopupUI, List<UI_EVENT_TYPE>) CloseInventoryValue()
+    {
+        List<UI_EVENT_TYPE> eventTypes = new List<UI_EVENT_TYPE> { UI_EVENT_TYPE.Click };
+
+        return (this, eventTypes);
+    }
+
+public Transform GetInventory() 
     {
         return _inventory;
     }

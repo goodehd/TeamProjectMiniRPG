@@ -9,7 +9,7 @@ using static UnityEditor.Progress;
 
 namespace Managers
 {
-    public class InventoryManager
+    public class InventoryManager 
     {
         public Dictionary<string, Object> _inventory;
         public int _inventoryCount;
@@ -18,12 +18,11 @@ namespace Managers
         private ItemSlotUI _slotUI;
         private InventoryUI _inventoryUI;
 
-        private List<ItemSlotUI> itemSlots = new List<ItemSlotUI>();
+        public List<ItemSlotUI> itemSlots = new List<ItemSlotUI>();
+
 
         public InventoryManager()
         {
-            _slotUI = ServiceLocator.GetService<ItemSlotUI>();
-            _inventoryUI = ServiceLocator.GetService<InventoryUI>();
             _inventoryCount = 12;
         }
 
@@ -46,8 +45,13 @@ namespace Managers
 
         public void OpenInventory()
         {
-            Main.UI.OpenPopup<InventoryUI>();
+            _inventoryUI = Main.UI.OpenPopup<InventoryUI>();
             _inventoryOpend = true;
+        }
+
+        public void CloseInventory()
+        {
+            _inventoryUI.CloseInventory();
         }
     }
 }

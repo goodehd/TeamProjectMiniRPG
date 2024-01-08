@@ -9,6 +9,8 @@ using UnityEngine.EventSystems;
 public class ItemSlotUI : BaseUI
 {
     [SerializeField] private Item _itemSO;
+    public bool isUsed = false;
+
     private Button _itemSlot;
 
     private Transform _itemIcon;
@@ -42,6 +44,7 @@ public class ItemSlotUI : BaseUI
 
     public void SetupItem()
     {
+        isUsed = true;
         _itemIcon.gameObject.SetActive(true);
         Debug.Log("아이템 장착됨");
     }
