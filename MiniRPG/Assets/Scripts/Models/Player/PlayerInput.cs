@@ -10,7 +10,8 @@ public class PlayerInput : MonoBehaviour
     public event Action<Vector2> OnMovement;
     public event Action<Vector2> OnAttack;
     public event Action OnAttackTimer;
-
+    AudioSource audioSource;
+    public AudioClip attackSound;
     #endregion
 
     #region Properties
@@ -42,7 +43,7 @@ public class PlayerInput : MonoBehaviour
     private void OnDisable()
     {
         PlayerInputAction.Disable();
-        
+
         PlayerInputAction.Player.MovementApply.performed -= OnRightClick;
         PlayerInputAction.Player.AttackApply.performed -= OnLeftClick;
     }
@@ -56,16 +57,19 @@ public class PlayerInput : MonoBehaviour
     private void OnRightClick(InputAction.CallbackContext context)
     {
         if (!(context.ReadValue<float>() > Literals.ZeroF)) return;
-        
+
         OnMovement?.Invoke(Mouse.current.position.ReadValue());
     }
 
     private void OnLeftClick(InputAction.CallbackContext context)
     {
         if (!(context.ReadValue<float>() > Literals.ZeroF)) return;
-        
+
+        audioSource = this.gameObject.GetComponent<AudioSource>();
         OnAttack?.Invoke(Mouse.current.position.ReadValue());
         OnAttackTimer?.Invoke();
+        if(audioSource != null)
+            this.audioSource.Play();
     }
 
     #endregion
