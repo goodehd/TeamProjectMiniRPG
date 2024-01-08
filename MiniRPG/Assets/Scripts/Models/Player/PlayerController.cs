@@ -8,7 +8,7 @@ using UnityEngine;
     typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
-    //#region Fields
+    #region Fields
 
     // Member
     private CharacterController _characterController;

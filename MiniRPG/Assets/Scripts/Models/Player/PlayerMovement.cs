@@ -115,13 +115,12 @@ public class PlayerMovement
             if (_currentPathIndex >= _path.corners.Length)
             {
                 _path = null; // 경로 완료
+                //_playerAnimator.SetBool("IsWalking", false);
             }
         }
         else
         {
             SmoothSpeed(Literals.ZeroF);
-
-            _playerAnimator.SetBool("IsWalking", false);
         }
         
     }
@@ -193,7 +192,7 @@ public class PlayerMovement
 
     private void InputEventScreenPosition(Vector2 screenPosition)
     {
-        _playerAnimator.SetBool("IsWalking", true); // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        //_playerAnimator.SetBool("IsWalking", true); // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         _screenPosition = screenPosition;
         
