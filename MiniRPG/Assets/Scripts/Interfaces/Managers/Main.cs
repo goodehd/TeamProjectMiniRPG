@@ -12,6 +12,7 @@ public class Main : SingletonBehavior<Main>
     private readonly ScenesManager _scenes = new();
     private readonly SoundManager _sound = new();
     private readonly UIManager _ui = new();
+    private readonly InventoryManager _inventory = new();
 
     #endregion
 
@@ -28,6 +29,6 @@ public class Main : SingletonBehavior<Main>
     public static ScenesManager Scenes => Instance._scenes;
     public static SoundManager Sound => Instance._sound;
     public static UIManager UI => Instance._ui;
-
+    public static InventoryManager Inventory => Instance._inventory;
     #endregion
 }

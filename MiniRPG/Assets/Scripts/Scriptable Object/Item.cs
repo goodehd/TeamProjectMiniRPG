@@ -7,10 +7,17 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
-    public string itemName;
-    public int value;
-    public Sprite icon;
+    public string itemName; // 이름
+    public int value; // 공격력, 마나, 체력..  
+    public Sprite icon; //이미지 아이콘
     public bool IsUsed;
+    public ItemType itemType;
 
+    public enum ItemType
+    {
+        Potion,
+        Weapon,
+        Armor
+    }
 
 }

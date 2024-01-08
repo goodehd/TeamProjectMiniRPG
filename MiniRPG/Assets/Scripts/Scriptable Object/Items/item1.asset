@@ -16,3 +16,4 @@ MonoBehaviour:
   value: 10
   icon: {fileID: 0}
   IsUsed: 0
+  itemType: 0

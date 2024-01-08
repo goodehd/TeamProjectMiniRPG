@@ -46,8 +46,6 @@ namespace Managers
                 }
             }
         }
-
-
         public static T GetAddComponent<T>(GameObject obj) where T : Component
         {
             return obj.GetComponent<T>() ?? obj.AddComponent<T>();
@@ -66,6 +64,8 @@ namespace Managers
             asset.itemName = name;
             asset.value = value;
             AddItem(asset); 
+            Main.Inventory.AddItem(asset);
+
             AssetDatabase.CreateAsset(asset, $"Assets/Scripts/Scriptable Object/items/{asset.itemName}.asset");
             AssetDatabase.Refresh();
         }
