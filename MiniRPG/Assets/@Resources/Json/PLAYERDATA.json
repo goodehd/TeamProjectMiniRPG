@@ -8,7 +8,7 @@
     "MaxValue": 200.0
   },
   "Exp": {
-    "CurValue": 0.0,
+    "CurValue": 20.0,
     "MaxValue": 1000.0
   },
   "BaseDmg": {
