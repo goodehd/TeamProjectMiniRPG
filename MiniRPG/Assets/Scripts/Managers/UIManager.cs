@@ -70,7 +70,7 @@ namespace Managers
             _popupStack.Pop();
             UnbindPopupEvents(popup, eventTypes);
             _orderByLayer--;
-            Object.Destroy(popup);
+            Object.Destroy(popup.gameObject);
         }
 
         private void UnbindPopupEvents(PopupUI popup, List<UI_EVENT_TYPE> eventTypes)

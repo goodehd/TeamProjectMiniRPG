@@ -13,7 +13,6 @@ namespace Managers
         public Dictionary<string, Object> _resources;
         public bool LoadBase { get; set; }
         public ResourceManager(){
-            Debug.Log(_resources);
             _resources = new Dictionary<string,Object>();
     }
 
@@ -107,7 +106,7 @@ namespace Managers
             GameObject resource = Load<GameObject>($"{path}.prefab");  
             if (resource == null)
             {
-                Debug.LogError($"Failed to load Prefab: {path}");
+                Debug.LogError($"Failed to load Prefab: {path}.prefab");
                 return null;
             }
             GameObject go = Object.Instantiate(resource, transform);

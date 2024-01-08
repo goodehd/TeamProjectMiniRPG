@@ -84,6 +84,16 @@ public static class Literals
     public const string SELECT_FEMALE_LV_TEXT = "Female_LvText";
     #endregion
 
+    #region UI_Inventory
+    public const string ITEMSLOT_ITEMSLOT_BUTTON = "ItemSlotUI";
+    public const string ITEMSLOT_ITEMICON_TRANSFORM = "ItemIcon";
+    public const string ITEMSLOT_EQUIPMARK_TRANSFORM = "EquipMark";
+
+    public const string INVENTORY_INVENTORY_TRANSFORM = "Inventory";
+    public const string INVENTORY_EXIT_BUTTON = "ExitBtn";
+
+    #endregion
+
     #region ViliagePrefabsName
     public static string[] ViliagePrefabNames =
     {
