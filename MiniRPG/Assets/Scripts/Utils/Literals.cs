@@ -105,6 +105,7 @@ public static class Literals
     public const string SHOP_ITEMDESCRIPT_TEXT = "ItemDescriptText";
 
     public const string SHOP_ITEMBUY_BUTTON = "BuyBtn";
+    public const string SHOP_EXIT_BUTTON = "ExitBtn";
 
     public const string SHOP_ITEMSLOT_ICON_IMAGE = "ShopItemIcon";
     public const string SHOP_ITEMSLOT_NAME_TEXT = "ShopItemText";
