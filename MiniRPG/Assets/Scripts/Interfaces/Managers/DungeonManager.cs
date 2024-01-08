@@ -28,7 +28,10 @@ public class DungeonManager : MonoBehaviour
     public Transform Lv2_SpawnPosition2;
     public Transform Lv2_BossPosition;
 
-    public GameObject panel;
+    public GameObject clearPanel;
+    public GameObject diePanel;
+
+    private PlayerData playerData;
 
     void Start()
     {
@@ -46,10 +49,32 @@ public class DungeonManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            panel.SetActive(true);
+            clearPanel.SetActive(true);
+        }
+        CheckEnemyCount();
+        playerData = Main.Game.Player.GetComponent<PlayerController>().Player.PlayerData;
+        if (playerData?.Hp.CurValue <= 0)
+        {
+            if (!diePanel.activeSelf)
+            {
+                diePanel.SetActive(true);
+            }
         }
     }
+    void CheckEnemyCount()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+        if (enemies.Length == 0)
+        {
+            ActivateGameOverPanel();
+        }
+    }
+    void ActivateGameOverPanel()
+    {
+        clearPanel.SetActive(true);
+        // 여기에 추가적인 게임 오버 처리 코드를 넣을 수 있음
+    }
     void ActivateDungeonLevel(DungeonLevel dungeonLevel)
     {
         switch (dungeonLevel)

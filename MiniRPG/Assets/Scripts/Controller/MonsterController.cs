@@ -123,6 +123,8 @@ public class MonsterController : MonoBehaviour
 
     private void Die()
     {
+        playerData.Exp.AddValue(20);
+        Main.UI.SceneUI.GetComponent<MainSceneUI>().SetPlayerInfo();
         // 죽는 사운드 호출
         anim.SetTrigger("IsDie");
         isDead = true;
