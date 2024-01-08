@@ -12,6 +12,7 @@ public class Intro_UI : BaseUI
     private Button _touchBtn;
     private TextMeshProUGUI _text;
 
+
     protected override bool Initialized()
     {
         if(!base.Initialized()) return false;

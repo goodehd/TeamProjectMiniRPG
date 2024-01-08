@@ -134,13 +134,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Viliage
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3998ad29b762a32419ac5b42f63e1a88
-    m_Address: PlayerTest.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Viliage
-    - Dungeon
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 998af0747d75f0b49ba9309ead1ea847
     m_Address: ShopUI.prefab
     m_ReadOnly: 0
