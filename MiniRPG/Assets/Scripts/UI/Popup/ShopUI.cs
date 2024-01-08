@@ -21,6 +21,7 @@ public class ShopUI : PopupUI
     private TextMeshProUGUI _shopItemDescript;
 
     private Button _shopItemBuyBtn;
+    private Button _shopExipBtn;
 
     protected override bool Initialized()
     {
@@ -62,12 +63,21 @@ public class ShopUI : PopupUI
     {
         SetUI<Button>();
         _shopItemBuyBtn = GetUI<Button>(Literals.SHOP_ITEMBUY_BUTTON);
+        _shopExipBtn = GetUI<Button>(Literals.SHOP_EXIT_BUTTON);
+        
         _shopItemBuyBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, BuyBtnClick);
+        _shopExipBtn.gameObject.SetEvent(UI_EVENT_TYPE.Click, ExitBtnClick);
     }
 
     private void BuyBtnClick(PointerEventData data)
     {
         Main.Inventory.AddItem(_selectItem);
+
+    }
+    private void ExitBtnClick(PointerEventData data)
+    {
+        List<UI_EVENT_TYPE> eventTypes = new List<UI_EVENT_TYPE> { UI_EVENT_TYPE.Click };
+        Main.UI.ClosePopup(this, eventTypes);
 
     }
 
