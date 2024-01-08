@@ -1,4 +1,4 @@
-
+/*
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,7 +48,7 @@ public class PlayerAttack2 : MonoBehaviour
         _playerAnimator.SetTrigger("IsAttack4");
     }
 
-    /*private void OnCollisionEnter(Collision other)
+    *//*private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Enemy") && isAttacking)
         {
@@ -78,5 +78,5 @@ public class PlayerAttack2 : MonoBehaviour
                 }
             }
         }
-    }*/
-}
+    }*//*
+}*/

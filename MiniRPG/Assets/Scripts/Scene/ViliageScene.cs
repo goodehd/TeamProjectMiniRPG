@@ -14,7 +14,7 @@ public class ViliageScene : BaseScene
 
         CreateEnviorment();
         CreateNPC();
-        CreatePlayer();
+        Main.Entity.CreatePlayer(_startPos, false);
 
         return true;
     }
@@ -37,23 +37,23 @@ public class ViliageScene : BaseScene
         }
     }
 
-    private void CreatePlayer()
-    {
-        UI_SELECT_CHARACTER type = Main.Game.CurrentCharacterType;
-        GameObject player = null;
-        switch (type)
-        {
-            case UI_SELECT_CHARACTER.Male:
-                player = Main.Resource.InstantiatePrefab("Player");
-                break;
-            case UI_SELECT_CHARACTER.Female:
-                player = Main.Resource.InstantiatePrefab("Player");
-                break;
-        }
-        player.transform.position = _startPos;
-        Main.Game.Player = player;
-        Camera.main.GetComponent<FollowCamera2>().target = player.transform;
-        MainSceneUI ui = Main.UI.SetSceneUI<MainSceneUI>();
-        ui.SetPlayer(player.GetComponent<PlayerController>().Player);
-    }
+    // private void CreatePlayer()
+    // {
+    //     UI_SELECT_CHARACTER type = Main.Game.CurrentCharacterType;
+    //     GameObject player = null;
+    //     switch (type)
+    //     {
+    //         case UI_SELECT_CHARACTER.Male:
+    //             player = Main.Resource.InstantiatePrefab("Player");
+    //             break;
+    //         case UI_SELECT_CHARACTER.Female:
+    //             player = Main.Resource.InstantiatePrefab("Player");
+    //             break;
+    //     }
+    //     player.transform.position = _startPos;
+    //     Main.Game.Player = player;
+    //     Camera.main.GetComponent<FollowCamera2>().target = player.transform;
+    //     MainSceneUI ui = Main.UI.SetSceneUI<MainSceneUI>();
+    //     ui.SetPlayer(player.GetComponent<PlayerController>().Player);
+    // }
 }

@@ -5,6 +5,7 @@ using UI;
 using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class ItemSlotUI : BaseUI
 {
@@ -16,15 +17,24 @@ public class ItemSlotUI : BaseUI
     private Transform _itemIcon;
     private Transform _equipMark;
 
+    private Image _itemIconImage;
 
     protected override bool Initialized()
     {
         if (!base.Initialized()) return false;
 
-        SetupButton();
-        SetupTransform();
+        //SetupButton();
+        //SetupTransform();
+        //SetupImage();
 
         return true;
+    }
+
+    public void Init()
+    {
+        SetupButton();
+        SetupTransform();
+        SetupImage();
     }
 
     private void SetupButton()
@@ -41,12 +51,18 @@ public class ItemSlotUI : BaseUI
         _itemIcon = GetUI<Transform>(Literals.ITEMSLOT_ITEMICON_TRANSFORM);
         _equipMark = GetUI<Transform>(Literals.ITEMSLOT_EQUIPMARK_TRANSFORM);
     }
+    private void SetupImage()
+    {
+        SetUI<Image>();
+        _itemIconImage = GetUI<Image>(Literals.ITEMSLOT_ITEMICON_IMAGE);
+    }
 
-    public void SetupItem()
+    public void SetupItem(Item item)
     {
         isUsed = true;
-        _itemIcon.gameObject.SetActive(true);
+        _itemIconImage.gameObject.SetActive(true);
         Debug.Log("아이템 장착됨");
+        _itemIconImage.sprite = item.icon;
     }
 
     private void itemBtnClick(PointerEventData data)

@@ -55,15 +55,15 @@ public class MainSceneUI : BaseUI
 
         _hpText.text = ((int)(_player.PlayerData.Hp.CurValue)).ToString();
         _hpMaxText.text = ((int)(_player.PlayerData.Hp.MaxValue)).ToString();
-        _hpBar.fillAmount = (int)(_player.PlayerData.Hp.CurValue) / (int)(_player.PlayerData.Hp.MaxValue);
+        _hpBar.fillAmount = (_player.PlayerData.Hp.CurValue) / (_player.PlayerData.Hp.MaxValue);
 
         _mpText.text = ((int)(_player.PlayerData.Mp.CurValue)).ToString();
         _mpMaxText.text = ((int)(_player.PlayerData.Mp.MaxValue)).ToString();
-        _mpBar.fillAmount = (int)(_player.PlayerData.Mp.CurValue) / (int)(_player.PlayerData.Mp.MaxValue);
+        _mpBar.fillAmount = (_player.PlayerData.Mp.CurValue) / (_player.PlayerData.Mp.MaxValue);
 
         _expText.text = ((int)(_player.PlayerData.Exp.CurValue)).ToString();
         _expMaxText.text = ((int)(_player.PlayerData.Exp.MaxValue)).ToString();
-        _expBar.fillAmount = (int)(_player.PlayerData.Exp.CurValue) / (int)(_player.PlayerData.Exp.MaxValue);
+        _expBar.fillAmount = (_player.PlayerData.Exp.CurValue) / (_player.PlayerData.Exp.MaxValue);
     }
 
     public void AddQuestList(List<Quest> quests)

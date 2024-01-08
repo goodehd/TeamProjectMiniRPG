@@ -6,6 +6,7 @@ public class MonsterController : MonoBehaviour
     private Animator anim;
     private Transform playerTransform;
     private NavMeshAgent nav;
+    private PlayerData playerData;
 
     //[SerializeField]
     protected int maxHealth = 20;
@@ -21,7 +22,6 @@ public class MonsterController : MonoBehaviour
     // speed는 적 컴포넌트 nevmeshAgent 컴포넌트에서 설정할 수 있습니다.
 
     private bool isAttacking;
-    private bool isAttacked;
     private bool isDead;
 
     void Start()
@@ -32,12 +32,12 @@ public class MonsterController : MonoBehaviour
     private void DefaultSetting()
     {
         isAttacking = false;
-        isAttacked = false;
         isDead = false;
         anim = GetComponent<Animator>();
         nav = GetComponent<NavMeshAgent>();
         curHealth = maxHealth;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerData = Main.Game.Player.GetComponent<PlayerController>().Player.PlayerData;
     }
 
     void Update()
@@ -87,9 +87,8 @@ public class MonsterController : MonoBehaviour
 
     private void MonsterAttack(Collision other) // 몬스터가 공격하는 부분
     {
-        // 공격 사운드 호출
-        // 캐릭터가 데미지 받는 함수 호출(아래 예시)
-        // other.gameObject.GetComponent<PlayerStatHandler>()?.Hit((float)enemyPower);
+        playerData.Hp.SubValue(50);
+        Main.UI.SceneUI.GetComponent<MainSceneUI>().SetPlayerInfo();
         isAttacking = true;
         nav.isStopped = true;
         anim.SetTrigger("IsAttack");
@@ -98,12 +97,11 @@ public class MonsterController : MonoBehaviour
 
     private void ResetAttack()
     {
-        //Debug.Log("공격다시 가능해집니다.");
         isAttacking = false;
         nav.isStopped = false;
     }
 
-    public void MonsterAttacked(int damage) // 몬스터가 공격받는 부분 => 플레이어 AttackSystem에서 호출하면됌.
+    public void MonsterAttacked(int damage) // 몬스터가 공격받는 부분
     {
         curHealth -= (int)damage;
 
@@ -112,7 +110,6 @@ public class MonsterController : MonoBehaviour
             if (curHealth > 0)
             {
                 Debug.Log("몬스터가 공격 받았습니다.");
-                // 맞는 사운드 호출
                 // anim.SetTrigger("damage"); => 빨개지게 하는 애니메이션 추가예정
                 // 넉백함수 추가예정
             }
@@ -122,12 +119,6 @@ public class MonsterController : MonoBehaviour
                 Debug.Log("몬스터가 죽었습니다.");
             }
         }
-    }
-
-    private void ResetAttacked()
-    {
-        //Debug.Log("공격다시 받을수있습니다.");
-        isAttacked = false;
     }
 
     private void Die()

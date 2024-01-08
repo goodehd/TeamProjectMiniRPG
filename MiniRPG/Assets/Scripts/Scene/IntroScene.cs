@@ -6,6 +6,8 @@ namespace Scene
 {
     public class IntroScene : BaseScene
     {
+
+        
         protected override bool Initialized()
         {
             if (!base.Initialized()) return false;
@@ -19,6 +21,7 @@ namespace Scene
                     if (eventSystem == null) Main.Resource.InstantiatePrefab("EventSystem");
 
                     UI.SetSceneUI<Intro_UI>();
+  
 
                 }
             });

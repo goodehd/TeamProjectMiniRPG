@@ -12,6 +12,7 @@ public class Intro_UI : BaseUI
     private Button _touchBtn;
     private TextMeshProUGUI _text;
 
+
     protected override bool Initialized()
     {
         if(!base.Initialized()) return false;
@@ -42,7 +43,5 @@ public class Intro_UI : BaseUI
         Main.Scenes.NextScene = "Select";
         Main.Scenes.CurrentScene = "Intro";
         Main.Scenes.LoadLoadingScene();
-        Debug.Log("눌렸음");
-        _text.text = "눌려짐";
     }
 }

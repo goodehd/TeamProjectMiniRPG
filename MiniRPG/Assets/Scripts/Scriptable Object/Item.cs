@@ -12,6 +12,7 @@ public class Item : ScriptableObject
     public Sprite icon; //이미지 아이콘
     public bool IsUsed;
     public ItemType itemType;
+    public string description;
 
     public enum ItemType
     {
