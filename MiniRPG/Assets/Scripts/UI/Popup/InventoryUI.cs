@@ -57,7 +57,7 @@ public class InventoryUI : PopupUI
         if (Inventory._inventory == null) return;
         foreach (var item in Inventory._inventory)
         {
-            Inventory.itemSlots[_itemCount].SetupItem();
+            Inventory.itemSlots[_itemCount].SetupItem(item.Value);
             _itemCount++;
         }
     }

@@ -88,6 +88,7 @@ public static class Literals
     public const string ITEMSLOT_ITEMSLOT_BUTTON = "ItemSlotUI";
     public const string ITEMSLOT_ITEMICON_TRANSFORM = "ItemIcon";
     public const string ITEMSLOT_EQUIPMARK_TRANSFORM = "EquipMark";
+    public const string ITEMSLOT_ITEMICON_IMAGE = "ItemIcon";
 
     public const string INVENTORY_INVENTORY_TRANSFORM = "Inventory";
     public const string INVENTORY_EXIT_BUTTON = "ExitBtn";
