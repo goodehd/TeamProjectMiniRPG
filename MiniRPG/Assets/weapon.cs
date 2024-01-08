@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class weapon : MonoBehaviour
 {
-    private PlayerAttack playerAttack;
-    void Start()
-    {
-        playerAttack = GetComponent<PlayerAttack>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") && playerAttack.isAttacking)
+        if (other.gameObject.CompareTag("Enemy"))
         {
             MonsterController monsterController = other.gameObject.GetComponent<MonsterController>();
             if (monsterController != null)
