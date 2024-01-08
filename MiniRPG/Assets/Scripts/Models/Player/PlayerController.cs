@@ -8,7 +8,7 @@ using UnityEngine;
     typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
-    #region Fields
+    //#region Fields
 
     // Member
     private CharacterController _characterController;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     
     // State Machine
     private FiniteStateMachine _finiteStateMachine;
-    
+
     // Timers
     private List<Timer> _timers;
     private CountdownTimer _attackCooldownTimer;
@@ -33,7 +33,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-    #region Getter (Properties)
+
+    //#region Getter (Properties)
 
     public CharacterController Controller => _characterController;
     public Animator Animator => _playerAnimator;
@@ -45,11 +46,11 @@ public class PlayerController : MonoBehaviour
     public PlayerMovement PlayerMovement => _playerMovement;
     public PlayerAttack PlayerAttack => _playerAttack;
 
-    #endregion
+    //#endregion
 
 
 
-    #region Unity Behavior
+    //#region Unity Behavior
 
     private void Awake()
     {
@@ -87,11 +88,11 @@ public class PlayerController : MonoBehaviour
         _playerInput.OnAttackTimer -= OnAttackTimer;
     }
 
-    #endregion
+    //#endregion
 
 
 
-    #region Initialize Behavior
+    //#region Initialize Behavior
 
     // Awake
     private void InitializeAwake()
@@ -115,11 +116,11 @@ public class PlayerController : MonoBehaviour
         SetupTimers();
     }
 
-    #endregion
+    //#endregion
 
 
 
-    #region Initialize
+    //#region Initialize
 
     private void SetupStateMachine()
     {
@@ -171,11 +172,11 @@ public class PlayerController : MonoBehaviour
         _playerAttack.ReleaseAttackInputEvent();
     }
 
-    #endregion
+    //#endregion
 
 
 
-    #region Rename
+    //#region Rename
 
     private void At(IFiniteState from, IFiniteState to, IStatePredicate condition)
         => _finiteStateMachine.AddTransition(from, to, condition);
@@ -183,7 +184,7 @@ public class PlayerController : MonoBehaviour
     private void Any(IFiniteState to, IStatePredicate condition)
         => _finiteStateMachine.AddAnyTransition(to, condition);
 
-    #endregion
+    //#endregion
 
 
 

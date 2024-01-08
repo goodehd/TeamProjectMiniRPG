@@ -164,6 +164,16 @@ public class PlayerMovement
     //         playerRotation, targetRotation, 8f * Time.fixedDeltaTime);
     // }
 
+    /*private void Attack()
+    {
+        _playerAnimator.SetTrigger("IsAttack2");
+    }
+
+    private void Skill()
+    {
+        _playerAnimator.SetTrigger("IsAttack4");
+    }*/
+
     #endregion
 
 
