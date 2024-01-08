@@ -166,13 +166,15 @@ public class PlayerMovement
 
     private void InputEventScreenPosition(Vector2 screenPosition)
     {
-        _playerAnimator.SetBool("IsWalking", true); // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        //_playerAnimator.SetBool("IsWalking", true); // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         _screenPosition = screenPosition;
-        
-        var ray = _playerController.MainCamera.ScreenPointToRay(_screenPosition);
 
-        if (!Physics.Raycast(ray, out var hit, 100f)) return;
+        int layerMask = (-1) - (1 << LayerMask.NameToLayer("NPC"));
+        var ray = _playerController.MainCamera.ScreenPointToRay(_screenPosition);
+        Debug.DrawRay(ray.origin, ray.direction * 1000f, Color.red);
+
+        if (!Physics.Raycast(ray, out var hit, 1000f, layerMask)) return;
         
         _path = new NavMeshPath();
         if (NavMesh.CalculatePath(_playerController.transform.position, hit.point, NavMesh.AllAreas, _path))

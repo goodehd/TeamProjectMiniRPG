@@ -44,13 +44,16 @@ public class ViliageScene : BaseScene
         switch (type)
         {
             case UI_SELECT_CHARACTER.Male:
-                player = Main.Resource.InstantiatePrefab("MaleTest");
+                player = Main.Resource.InstantiatePrefab("PlayerTest");
                 break;
             case UI_SELECT_CHARACTER.Female:
-                player = Main.Resource.InstantiatePrefab("FemaleTest");
+                player = Main.Resource.InstantiatePrefab("PlayerTest");
                 break;
         }
         player.transform.position = _startPos;
         Main.Game.Player = player;
+        Camera.main.GetComponent<FollowCamera>().target = player.transform;
+        MainSceneUI ui = Main.UI.SetSceneUI<MainSceneUI>();
+        ui.SetPlayer(player.GetComponent<PlayerController>().Player);
     }
 }

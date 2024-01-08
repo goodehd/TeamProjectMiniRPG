@@ -126,12 +126,14 @@ public class QuestUI : PopupUI
     private void AcceptBtnClick(PointerEventData data)
     {
         _selectQuests.State = EQuestState.InProgress;
+        Main.Quest.StartQuest(_selectQuests);
         SetQuestInfo(_selectQuests);
     }
 
     private void GiveUpBtnClick(PointerEventData data)
     {
         _selectQuests.State = EQuestState.CanStart;
+        Main.Quest.GiveUPQuest(_selectQuests);
         SetQuestInfo(_selectQuests);
     }
 

@@ -19,6 +19,7 @@ public class InteractableController : MonoBehaviour
     {
         if (collision.CompareTag("Interactable"))
         {
+            _curInteractable.OnInteractableExit();
             _curInteractable = null;
         }
     }

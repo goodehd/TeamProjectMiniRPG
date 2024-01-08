@@ -127,6 +127,18 @@ MonoBehaviour:
     - Viliage
     - Game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb47e96e7e7345540aa2946808b22b7d
+    m_Address: Map.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3998ad29b762a32419ac5b42f63e1a88
+    m_Address: PlayerTest.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}
   m_SchemaSet:

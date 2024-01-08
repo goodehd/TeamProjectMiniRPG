@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class DungeonNPC : MonoBehaviour, IInteractable
 {
+    private GameObject _interUI;
+
     public void OnInteractionEnter()
     {
-        
+        GameObject go = Main.Resource.InstantiatePrefab("InteractableUI", transform);
+        _interUI = go;
     }
 
     public void OnInteractable()
@@ -16,5 +19,10 @@ public class DungeonNPC : MonoBehaviour, IInteractable
 
         DungeonIntroUI DungeonUI = Main.UI.OpenPopup<DungeonIntroUI>();
         DungeonUI.SetDungeonData(data);
+    }
+
+    public void OnInteractableExit()
+    {
+        Destroy(_interUI);
     }
 }

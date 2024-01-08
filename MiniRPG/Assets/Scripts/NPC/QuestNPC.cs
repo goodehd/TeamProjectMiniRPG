@@ -5,6 +5,7 @@ using UnityEngine;
 public class QuestNPC : MonoBehaviour, IInteractable
 {
     private List<Quest> _quests;
+    private GameObject _interUI;
 
     private void Start()
     {
@@ -27,12 +28,18 @@ public class QuestNPC : MonoBehaviour, IInteractable
 
     public void OnInteractionEnter()
     {
-        
+        GameObject go = Main.Resource.InstantiatePrefab("InteractableUI", transform);
+        _interUI = go;
     }
 
     public void OnInteractable()
     {
         QuestUI Q_UI = Main.UI.OpenPopup<QuestUI>();
         Q_UI.SetQuestList(_quests);
+    }
+
+    public void OnInteractableExit()
+    {
+        Destroy(_interUI);
     }
 }
