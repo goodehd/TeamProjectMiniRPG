@@ -33,5 +33,7 @@ public class ShopNPC : MonoBehaviour, IInteractable
         //Shop_UI.SetupShopItemSlot();
     }
 
-
+    public void OnInteractableExit()
+    {
+    }
 }
