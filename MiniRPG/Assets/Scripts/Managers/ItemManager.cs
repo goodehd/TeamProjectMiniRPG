@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
+using TMPro;
 
 
 
@@ -27,10 +28,7 @@ namespace Managers
         {
             Items.Remove(item);
         }
-        public static Item GetAddComponent<Item>(GameObject obj) where Item : Component
-        {
-            return obj.GetComponent<Item>() ?? obj.AddComponent<Item>();
-        }
+
         public void SetItemData() 
         {
             Debug.Log("set item");
@@ -39,15 +37,21 @@ namespace Managers
                 Transform transform = FindItemTransform().transform;
                 foreach (var item in Items)
                 {
+                    //item1, item2, item2 
                     GameObject obj = Main.Resource.InstantiatePrefab("Item", transform);
-                  
- 
-                    
+                    var ItemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
+                    //Debug.Log(ItemName.text);
+                    ItemName.text = item.itemName;
+        
                 }
             }
         }
 
 
+        public static T GetAddComponent<T>(GameObject obj) where T : Component
+        {
+            return obj.GetComponent<T>() ?? obj.AddComponent<T>();
+        }
         private GameObject FindItemTransform()
         {
             GameObject itemObj = GameObject.Find("@Item");
