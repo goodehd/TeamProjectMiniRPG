@@ -17,6 +17,7 @@ public class ItemController : MonoBehaviour
         {
             case Item.ItemType.Potion:
                 //체력 증가 / player에서 새로 함수 추가하면 좋을듯? 
+                RemoveItem();
                 item.IsUsed = true;
                 break;
             case Item.ItemType.Weapon: 
