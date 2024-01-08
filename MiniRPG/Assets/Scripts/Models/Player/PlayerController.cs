@@ -7,7 +7,7 @@ using UnityEngine;
     typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
-    #region Fields
+    //#region Fields
 
     // Member
     private CharacterController _characterController;
@@ -19,15 +19,16 @@ public class PlayerController : MonoBehaviour
     // Player
     private Player _player;
     private PlayerMovement _playerMovement;
+    private PlayerAttack _playerAttack;
     
     // State Machine
     private FiniteStateMachine _finiteStateMachine;
     
-    #endregion
+    //#endregion
 
 
 
-    #region Getter (Properties)
+    //#region Getter (Properties)
 
     public CharacterController Controller => _characterController;
     public Animator Animator => _playerAnimator;
@@ -37,11 +38,11 @@ public class PlayerController : MonoBehaviour
 
     public Player Player => _player;
 
-    #endregion
+    //#endregion
 
 
 
-    #region Unity Behavior
+    //#region Unity Behavior
 
     private void Awake()
     {
@@ -74,11 +75,11 @@ public class PlayerController : MonoBehaviour
         ReleaseInputEvent();
     }
 
-    #endregion
+    //#endregion
 
 
 
-    #region Initialize Behavior
+    //#region Initialize Behavior
 
     // Awake
     private void InitializeAwake()
@@ -101,11 +102,11 @@ public class PlayerController : MonoBehaviour
         SetupPlayerControlData();
     }
 
-    #endregion
+    //#endregion
 
 
 
-    #region Initialize
+    //#region Initialize
 
     private void SetupStateMachine()
     {
@@ -135,11 +136,11 @@ public class PlayerController : MonoBehaviour
         _playerMovement.ReleaseMovementInputEvent();
     }
 
-    #endregion
+    //#endregion
 
 
 
-    #region Rename
+    //#region Rename
 
     private void At(IFiniteState from, IFiniteState to, IStatePredicate condition)
         => _finiteStateMachine.AddTransition(from, to, condition);
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour
     private void Any(IFiniteState to, IStatePredicate condition)
         => _finiteStateMachine.AddAnyTransition(to, condition);
 
-    #endregion
+    //#endregion
 
 
 

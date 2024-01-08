@@ -64,6 +64,7 @@ public class PlayerInput : MonoBehaviour
         if (!(context.ReadValue<float>() > Literals.ZeroF)) return;
         
         OnAttack?.Invoke(Mouse.current.position.ReadValue());
+        //_playerAttack.Attack();
     }
 
     #endregion
