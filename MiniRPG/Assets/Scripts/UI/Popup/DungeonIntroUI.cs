@@ -1,3 +1,4 @@
+using Managers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -99,12 +100,14 @@ public class DungeonIntroUI : PopupUI
 
     private void Level1BtnClick(PointerEventData data)
     {
+        Main.Game.Level = DungeonLevel.Level1;
         _selectLevel = DungeonLevel.Level1;
         _selectLevelText.text = "1";
     }
 
     private void Level2BtnClick(PointerEventData data)
     {
+        Main.Game.Level = DungeonLevel.Level2;
         _selectLevel = DungeonLevel.Level2;
         _selectLevelText.text = "2";
     }

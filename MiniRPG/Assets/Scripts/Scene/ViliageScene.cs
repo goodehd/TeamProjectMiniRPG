@@ -21,10 +21,12 @@ public class ViliageScene : BaseScene
 
     private void CreateEnviorment()
     {
-        for(int i = 0; i < Literals.ViliagePrefabNames.Length; ++i)
-        {
-            Main.Resource.InstantiatePrefab(Literals.ViliagePrefabNames[i]);
-        }
+        //for(int i = 0; i < Literals.ViliagePrefabNames.Length; ++i)
+        //{
+        //    Main.Resource.InstantiatePrefab(Literals.ViliagePrefabNames[i]);
+        //}
+        Main.Resource.InstantiatePrefab("Map");
+        Main.Resource.InstantiatePrefab("Sky");
     }
 
     private void CreateNPC()
@@ -42,13 +44,16 @@ public class ViliageScene : BaseScene
         switch (type)
         {
             case UI_SELECT_CHARACTER.Male:
-                player = Main.Resource.InstantiatePrefab("MaleTest");
+                player = Main.Resource.InstantiatePrefab("Player");
                 break;
             case UI_SELECT_CHARACTER.Female:
-                player = Main.Resource.InstantiatePrefab("FemaleTest");
+                player = Main.Resource.InstantiatePrefab("Player");
                 break;
         }
         player.transform.position = _startPos;
         Main.Game.Player = player;
+        Camera.main.GetComponent<FollowCamera2>().target = player.transform;
+        MainSceneUI ui = Main.UI.SetSceneUI<MainSceneUI>();
+        ui.SetPlayer(player.GetComponent<PlayerController>().Player);
     }
 }

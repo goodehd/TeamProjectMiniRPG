@@ -7,34 +7,11 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class TestData : IGameData<int>
-    {
-        public int Key { get; set; }
-        public string Name;
-        public string Type;
-        public int Attack;
-        public string Description;
-    }
-
     public class DataManager
     {
-        public Dictionary<int, TestData> _datas { get; private set; }
-
         public void Init()
         {
-            CsvToJson("testData");
-            _datas = LoadData<List<TestData>>("testData").ToDictionary<int, TestData>();
 
-            TestData test1 = new TestData();
-
-            test1.Key = 2;
-            test1.Name = "test";
-            test1.Type = "type";
-            test1.Attack = 1;
-            test1.Description = "description";
-
-            SaveData<TestData>(test1, "testData2");
-            TestData test2 = LoadData<TestData>("testData2");
         }
 
         // memory -> json

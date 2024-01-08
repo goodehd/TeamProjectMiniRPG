@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(
@@ -19,15 +20,21 @@ public class PlayerController : MonoBehaviour
     // Player
     private Player _player;
     private PlayerMovement _playerMovement;
+    private PlayerAttack _playerAttack;
     
     // State Machine
     private FiniteStateMachine _finiteStateMachine;
+
+    // Timers
+    private List<Timer> _timers;
+    private CountdownTimer _attackCooldownTimer;
     
     #endregion
 
 
 
-    #region Getter (Properties)
+
+    //#region Getter (Properties)
 
     public CharacterController Controller => _characterController;
     public Animator Animator => _playerAnimator;
@@ -36,12 +43,14 @@ public class PlayerController : MonoBehaviour
     public Camera MainCamera => _mainCamera;
 
     public Player Player => _player;
+    public PlayerMovement PlayerMovement => _playerMovement;
+    public PlayerAttack PlayerAttack => _playerAttack;
 
-    #endregion
+    //#endregion
 
 
 
-    #region Unity Behavior
+    //#region Unity Behavior
 
     private void Awake()
     {
@@ -55,30 +64,35 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //_finiteStateMachine.Update();
+        _finiteStateMachine.Update();
+
+        UpdateAnimator();
+        UpdateTimerHandle();
     }
 
     private void FixedUpdate()
     {
-        //_finiteStateMachine.FixedUpdate();
-        _playerMovement.HandleMovement();
+        _finiteStateMachine.FixedUpdate();
+        //_playerMovement.HandleMovement();
     }
 
     private void OnEnable()
     {
         AllocInputEvent();
+        _playerInput.OnAttackTimer += OnAttackTimer;
     }
 
     private void OnDisable()
     {
         ReleaseInputEvent();
+        _playerInput.OnAttackTimer -= OnAttackTimer;
     }
 
-    #endregion
+    //#endregion
 
 
 
-    #region Initialize Behavior
+    //#region Initialize Behavior
 
     // Awake
     private void InitializeAwake()
@@ -93,19 +107,20 @@ public class PlayerController : MonoBehaviour
         _mainCamera = Camera.main;
         
         _playerMovement = new PlayerMovement(this);
+        _playerAttack = new PlayerAttack(this);
     }
 
     private void InitializeStart()
     {
         SetupStateMachine();
-        SetupPlayerControlData();
+        SetupTimers();
     }
 
-    #endregion
+    //#endregion
 
 
 
-    #region Initialize
+    //#region Initialize
 
     private void SetupStateMachine()
     {
@@ -113,33 +128,55 @@ public class PlayerController : MonoBehaviour
         _finiteStateMachine ??= new FiniteStateMachine();
         
         // Declare States
-        var idleState = new PlayerIdleState(this, Player);
-        
-        
+        var locomotionState = new LocomotionState(this, Player);
+        var attackState = new AttackState(this, Player);
+
         // Define transitions
+        At(locomotionState, attackState, new FuncPredicate(() => _attackCooldownTimer.IsRunning));
+        At(attackState, locomotionState, new FuncPredicate(() => !_attackCooldownTimer.IsRunning));
+        Any(locomotionState, new FuncPredicate(ReturnToLocomotionState));
         
+        // Set Initial State
+        _finiteStateMachine.SetState(locomotionState);
     }
 
-    private void SetupPlayerControlData()
+    private void SetupTimers()
     {
-        
+        _attackCooldownTimer = new CountdownTimer(0.5f);
+
+        _timers = new List<Timer> { _attackCooldownTimer };
+    }
+
+    private void OnAttackTimer()
+    {
+        if (!_attackCooldownTimer.IsRunning)
+        {
+            _attackCooldownTimer.Start();
+        }
+    }
+
+    private bool ReturnToLocomotionState()
+    {
+        return !_attackCooldownTimer.IsRunning;
     }
 
     private void AllocInputEvent()
     {
         _playerMovement.AllocMovementInputEvent();
+        _playerAttack.AllocAttackInputEvent();
     }
 
     private void ReleaseInputEvent()
     {
         _playerMovement.ReleaseMovementInputEvent();
+        _playerAttack.ReleaseAttackInputEvent();
     }
 
-    #endregion
+    //#endregion
 
 
 
-    #region Rename
+    //#region Rename
 
     private void At(IFiniteState from, IFiniteState to, IStatePredicate condition)
         => _finiteStateMachine.AddTransition(from, to, condition);
@@ -147,15 +184,23 @@ public class PlayerController : MonoBehaviour
     private void Any(IFiniteState to, IStatePredicate condition)
         => _finiteStateMachine.AddAnyTransition(to, condition);
 
-    #endregion
+    //#endregion
 
 
 
-    #region Movement Events
+    #region Update
 
-    private void OnMovement(Vector2 screenPosition)
+    private void UpdateAnimator()
     {
-        //_playerMovement.SetScreenPosition(screenPosition);
+        _playerAnimator.SetFloat(Player.AnimationData.Speed, _playerMovement.CurrentSpeed);
+    }
+
+    private void UpdateTimerHandle()
+    {
+        foreach (var timer in _timers)
+        {
+            timer.Tick(Time.deltaTime);
+        }
     }
 
     #endregion

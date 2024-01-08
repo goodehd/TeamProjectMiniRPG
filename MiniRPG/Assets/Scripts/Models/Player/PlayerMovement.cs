@@ -1,5 +1,4 @@
 
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -27,7 +26,7 @@ public class PlayerMovement
     
     
     /* Properties */
-    public float SmoothTime => 0.2f;
+    public float SmoothTime => 0.05f;
     
     public float CurrentSpeed
     {
@@ -66,6 +65,9 @@ public class PlayerMovement
     public void AddMovementSpeed(float moveSpeed) => _movementSpeed += moveSpeed;
 
     public void SetMovementSpeed(float moveSpeed) => _movementSpeed = moveSpeed;
+
+    public void ResetMovement() => _path = null;
+    
     
     public void HandleMovement()
     {
@@ -92,25 +94,38 @@ public class PlayerMovement
     private void MovementProcess()
     {
         if (_path == null || _currentPathIndex >= _path.corners.Length)
+        {
+            SmoothSpeed(Literals.ZeroF);
             return;
+        }
 
         var targetPosition = _path.corners[_currentPathIndex];
         var direction = (targetPosition - _playerController.transform.position).normalized;
+        var adjustMovement = direction * (_movementSpeed * Time.fixedDeltaTime);
+        var adjustMovementNormal = adjustMovement.normalized;
 
-        _characterController.Move(direction * (_movementSpeed * Time.fixedDeltaTime));
-        
-        if (!(Vector3.Distance(_playerController.transform.position, targetPosition) < 0.1f)) return;
-        
-        _currentPathIndex++;
-        if (_currentPathIndex >= _path.corners.Length)
+        if (adjustMovementNormal.magnitude > Literals.ZeroF)
         {
-            _path = null; // 경로 완료
-            _playerAnimator.SetBool("IsWalking", false); // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            _characterController.Move(adjustMovement);
+            SmoothSpeed(adjustMovementNormal.magnitude);
+
+            if (!(Vector3.Distance(_playerController.transform.position, targetPosition) < 0.1f)) return;
+
+            _currentPathIndex++;
+            if (_currentPathIndex >= _path.corners.Length)
+            {
+                _path = null; // 경로 완료
+                //_playerAnimator.SetBool("IsWalking", false);
+            }
+        }
+        else
+        {
+            SmoothSpeed(Literals.ZeroF);
         }
         
     }
     
-    public void RotationProcess()
+    private void RotationProcess()
     {
         if (_path == null || _currentPathIndex >= _path.corners.Length)
             return;
@@ -129,6 +144,7 @@ public class PlayerMovement
         var newDirection = Vector3.RotateTowards(
             currentDirection, direction, 15f * Time.fixedDeltaTime, 0f);
         newDirection.y = 0f;
+
         _playerController.transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
@@ -147,16 +163,26 @@ public class PlayerMovement
     //         playerRotation, targetRotation, 8f * Time.fixedDeltaTime);
     // }
 
+    /*private void Attack()
+    {
+        _playerAnimator.SetTrigger("IsAttack2");
+    }
+
+    private void Skill()
+    {
+        _playerAnimator.SetTrigger("IsAttack4");
+    }*/
+
     #endregion
 
 
 
     #region Helper
 
-    // public float SmoothSpeed(float magnitude)
-    // {
-    //     return Mathf.SmoothDamp(CurrentSpeed, magnitude, ref Velocity, SmoothTime)
-    // }
+    private void SmoothSpeed(float magnitude)
+    {
+        _currentSpeed = Mathf.SmoothDamp(_currentSpeed, magnitude, ref _velocity, SmoothTime);
+    }
 
     #endregion
 
@@ -166,13 +192,15 @@ public class PlayerMovement
 
     private void InputEventScreenPosition(Vector2 screenPosition)
     {
-        _playerAnimator.SetBool("IsWalking", true); // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        //_playerAnimator.SetBool("IsWalking", true); // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         _screenPosition = screenPosition;
-        
-        var ray = _playerController.MainCamera.ScreenPointToRay(_screenPosition);
 
-        if (!Physics.Raycast(ray, out var hit, 100f)) return;
+        int layerMask = (-1) - (1 << LayerMask.NameToLayer("NPC"));
+        var ray = _playerController.MainCamera.ScreenPointToRay(_screenPosition);
+        Debug.DrawRay(ray.origin, ray.direction * 1000f, Color.red);
+
+        if (!Physics.Raycast(ray, out var hit, 1000f, layerMask)) return;
         
         _path = new NavMeshPath();
         if (NavMesh.CalculatePath(_playerController.transform.position, hit.point, NavMesh.AllAreas, _path))

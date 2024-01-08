@@ -1,8 +1,7 @@
 
 using System.Collections.Generic;
-using UnityEngine;
 
-public class FiniteStateNode : MonoBehaviour
+public class FiniteStateNode
 {
     #region Fields
 

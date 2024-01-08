@@ -7,30 +7,37 @@ public class QuestManager
     public QuestEvent questEvent { get; private set; }
 
     private Dictionary<string, Quest> _questMap;
+    private List<Quest> _questList;
 
     public QuestManager()
     {
         questEvent = new QuestEvent();
         _questMap = CreateQuestInfos();
-
-        questEvent.OnStartQuest += StartQuest;
-        questEvent.OnAdvanceQuest += AdvanceQuest;
-        questEvent.OnFinishQuest += FinishQuest;
+        _questList = new List<Quest>();
     }
 
-    private void StartQuest(string id)
+    public void StartQuest(Quest quest)
     {
-
+        _questList.Add(quest);
+        SetQuestList();
     }
 
-    private void AdvanceQuest(string id)
+    public void GiveUPQuest(Quest quest)
     {
-
+        for(int i = 0; i < _questList.Count; i++)
+        {
+            if(_questList[i].Questname == quest.Questname)
+            {
+                _questList.RemoveAt(i);
+            }
+        }
+        SetQuestList();
     }
 
-    private void FinishQuest(string id)
+    public void SetQuestList()
     {
-
+        MainSceneUI sceneUI = Main.UI.SceneUI.GetComponent<MainSceneUI>();
+        sceneUI.AddQuestList(_questList);
     }
 
     private Dictionary<string, Quest> CreateQuestInfos()

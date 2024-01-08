@@ -100,6 +100,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Viliage
+    - Dungeon
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca2b14f12d07acb4ca59cd245400dd7a
     m_Address: MaleTest.prefab
@@ -127,17 +128,18 @@ MonoBehaviour:
     - Viliage
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 998af0747d75f0b49ba9309ead1ea847
-    m_Address: ShopUI.prefab
+  - m_GUID: cb47e96e7e7345540aa2946808b22b7d
+    m_Address: Map.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Viliage
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e46be391767b05e48934e95a813e5de9
-    m_Address: ShopItemSlotUI.prefab
+  - m_GUID: 3998ad29b762a32419ac5b42f63e1a88
+    m_Address: PlayerTest.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Viliage
+    - Dungeon
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}

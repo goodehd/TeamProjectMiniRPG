@@ -15,6 +15,7 @@ namespace Managers
         #region Field
         private int _orderByLayer = 1;
         private Stack<PopupUI> _popupStack = new();
+        public BaseUI SceneUI { get; private set; }
 
         private GameObject UIBase
         {
@@ -35,7 +36,8 @@ namespace Managers
         public T SetSceneUI<T>() where T : BaseUI
         {
             string sceneUIName = typeof(T).Name;
-            return SetUI<T>(sceneUIName, UIBase.transform);
+            SceneUI = SetUI<T>(sceneUIName, UIBase.transform);
+            return (T)SceneUI;
         }
 
         private T SetUI<T>(string uiName, Transform parent = null) where T : Component

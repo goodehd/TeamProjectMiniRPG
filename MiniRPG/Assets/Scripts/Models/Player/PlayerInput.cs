@@ -9,6 +9,7 @@ public class PlayerInput : MonoBehaviour
 
     public event Action<Vector2> OnMovement;
     public event Action<Vector2> OnAttack;
+    public event Action OnAttackTimer;
 
     #endregion
 
@@ -64,6 +65,7 @@ public class PlayerInput : MonoBehaviour
         if (!(context.ReadValue<float>() > Literals.ZeroF)) return;
         
         OnAttack?.Invoke(Mouse.current.position.ReadValue());
+        OnAttackTimer?.Invoke();
     }
 
     #endregion

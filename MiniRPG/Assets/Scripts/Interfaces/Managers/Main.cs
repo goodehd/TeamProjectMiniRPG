@@ -13,6 +13,7 @@ public class Main : SingletonBehavior<Main>
     private readonly SoundManager _sound = new();
     private readonly UIManager _ui = new();
     private readonly InventoryManager _inventory = new();
+    private readonly QuestManager _quest = new();
 
     #endregion
 
@@ -30,5 +31,6 @@ public class Main : SingletonBehavior<Main>
     public static SoundManager Sound => Instance._sound;
     public static UIManager UI => Instance._ui;
     public static InventoryManager Inventory => Instance._inventory;
+    public static QuestManager Quest => Instance._quest;
     #endregion
 }
