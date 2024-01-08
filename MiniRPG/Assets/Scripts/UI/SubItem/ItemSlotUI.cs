@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 
 public class ItemSlotUI : BaseUI
 {
+    [SerializeField] private Item _itemSO;
     private Button _itemSlot;
 
     private Transform _itemIcon;
@@ -37,6 +38,12 @@ public class ItemSlotUI : BaseUI
         SetUI<Transform>();
         _itemIcon = GetUI<Transform>(Literals.ITEMSLOT_ITEMICON_TRANSFORM);
         _equipMark = GetUI<Transform>(Literals.ITEMSLOT_EQUIPMARK_TRANSFORM);
+    }
+
+    public void SetupItem()
+    {
+        _itemIcon.gameObject.SetActive(true);
+        Debug.Log("아이템 장착됨");
     }
 
     private void itemBtnClick(PointerEventData data)
