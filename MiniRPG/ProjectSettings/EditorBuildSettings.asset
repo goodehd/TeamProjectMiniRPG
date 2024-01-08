@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ViliageScene.unity
     guid: 1ab9790d8b9e8794fbf1510b48a76ae7
+  - enabled: 1
+    path: Assets/Scenes/DungeonScene.unity
+    guid: 43f732f6de29c1b4ea8cf203524b0db4
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 97774379526910948aa5a8fbf1f44fff, type: 2}

@@ -28,9 +28,14 @@ public class DungeonManager : MonoBehaviour
     public Transform Lv2_BossPosition;
     void Start()
     {
-            ActivateDungeonLevel(DungeonLevel.Level1); 
-
-            //ActivateDungeonLevel(DungeonLevel.Level2); 
+        if (Main.Game.Level == DungeonLevel.Level1)
+        {
+            ActivateDungeonLevel(DungeonLevel.Level1);
+        }
+        else if (Main.Game.Level == DungeonLevel.Level2)
+        {
+            ActivateDungeonLevel(DungeonLevel.Level2); 
+        }
     }
 
     void ActivateDungeonLevel(DungeonLevel dungeonLevel)
