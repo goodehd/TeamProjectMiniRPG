@@ -42,7 +42,5 @@ public class Intro_UI : BaseUI
         Main.Scenes.NextScene = "Select";
         Main.Scenes.CurrentScene = "Intro";
         Main.Scenes.LoadLoadingScene();
-        Debug.Log("눌렸음");
-        _text.text = "눌려짐";
     }
 }
