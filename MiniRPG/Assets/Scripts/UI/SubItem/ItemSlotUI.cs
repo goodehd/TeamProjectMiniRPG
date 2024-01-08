@@ -23,13 +23,19 @@ public class ItemSlotUI : BaseUI
     {
         if (!base.Initialized()) return false;
 
-        SetupButton();
-        SetupTransform();
-        SetupImage();
+        //SetupButton();
+        //SetupTransform();
+        //SetupImage();
 
         return true;
     }
 
+    public void Init()
+    {
+        SetupButton();
+        SetupTransform();
+        SetupImage();
+    }
 
     private void SetupButton()
     {
