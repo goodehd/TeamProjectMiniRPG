@@ -40,8 +40,6 @@ public class DungeonManager : MonoBehaviour
         {
             ActivateDungeonLevel(DungeonLevel.Level2); 
         }
-        MainSceneUI ui = Main.UI.SetSceneUI<MainSceneUI>();
-        //ui.SetPlayer(Main.Game.Player.GetComponent<PlayerController>().Player);
     }
 
     void Update()
