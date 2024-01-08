@@ -106,7 +106,7 @@ public class MonsterController : MonoBehaviour
     public void MonsterAttacked(int damage) // 몬스터가 공격받는 부분 => 플레이어 AttackSystem에서 호출하면됌.
     {
         curHealth -= (int)damage;
-        Debug.Log(curHealth);
+
         if (!isDead)
         {
             if (curHealth > 0)
