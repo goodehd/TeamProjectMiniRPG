@@ -26,6 +26,7 @@ public class PlayerAttack2 : MonoBehaviour
         {
             Skill();
         }
+
     }
     private void Attack()
     {
