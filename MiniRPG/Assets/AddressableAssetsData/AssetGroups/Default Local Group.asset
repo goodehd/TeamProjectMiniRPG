@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b4bf9f77faddf3347bfb22417fe4a12f
+  m_SerializeEntries:
+  - m_GUID: 51619bfabb0301f46b7afdda62c5babc
+    m_Address: Loading_UI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5caff0d99f3e44a8eaf226c98cd05ab0
+    m_Address: EventSystem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d3ae17f866024ccf9a0b4df2774ed46
+    m_Address: Intro_UI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Intro
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63b6b35b9806eb245a7a847c8f8c30ae
+    m_Address: Select_UI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Select
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdbfc2ce6398c93449147572cdd872e4
+    m_Address: PlayerFemale.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Select
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae203a0e3a0466745bbb8f639d28ab14
+    m_Address: PlayerMale.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Select
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01b7083ad49e66a4e8f47c3dd33529d7
+    m_Address: Item.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22ffaca454bdae14fb7ac60d3c976a8c
+    m_Address: MainSceneUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e46da122af7435e48a0f707967d71a13
+    m_Address: InteractableUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45db20a34f7e37740a84f94b8a5d40e8
+    m_Address: QuestGoalTextUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d37a4574fda68fe4d88bd0a4fb192d9a
+    m_Address: Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Viliage
+    - Dungeon
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: fddab16174e07e247b589f6e5fd95aef, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4c2edde6a07a5a74e96b753a8178b8f2, type: 2}
+    - {fileID: 11400000, guid: e5d2633588fe8194fb40acff0adbdd5e, type: 2}

@@ -1,0 +1,16 @@
+[
+  {
+    "Key": "1",
+    "Name": "통",
+    "Type": "전사",
+    "Attack": "10",
+    "Description": "테스트 전사"
+  },
+  {
+    "Key": "2",
+    "Name": "합",
+    "Type": "마법사",
+    "Attack": "20",
+    "Description": "테스트 마법사"
+  }
+]
