@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class MinaMapCamera : MonoBehaviour
 {
-    [SerializeField] public GameObject Player;
+    [SerializeField] public GameObject player;
 
-    // Update is called once per frame
+
     void Update()
     {
-        transform.position = new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z);
+        player = Main.Game.Player;
+        if(player == null)
+        {
+            return;
+        }
+        transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
     }
 }

@@ -32,9 +32,12 @@ public class DungeonManager : MonoBehaviour
     public GameObject diePanel;
 
     private PlayerData playerData;
+    private int monsterCount;
 
     void Start()
     {
+        monsterCount = 0;
+        Main.Quest.OnMonsterDieIvent += ClearCheck;
         if (Main.Game.Level == DungeonLevel.Level1)
         {
             ActivateDungeonLevel(DungeonLevel.Level1);
@@ -47,11 +50,7 @@ public class DungeonManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            clearPanel.SetActive(true);
-        }
-        CheckEnemyCount();
+        //CheckEnemyCount();
         playerData = Main.Game.Player.GetComponent<PlayerController>().Player.PlayerData;
         if (playerData?.Hp.CurValue <= 0)
         {
@@ -118,6 +117,7 @@ public class DungeonManager : MonoBehaviour
         foreach (Transform spawnPosition in spawnPositions)
         {
             Instantiate(monsterPrefab, spawnPosition.position, spawnPosition.rotation);
+            monsterCount++;
         }
     }
 
@@ -125,5 +125,15 @@ public class DungeonManager : MonoBehaviour
     {
         Main.Scenes.NextScene = "Viliage";
         Main.Scenes.LoadLoadingScene();
+    }
+
+    private void ClearCheck(MonsterController monsterController)
+    {
+        monsterCount--;
+        if(monsterCount == 0)
+        {
+            Main.Quest.OnMonsterDieIvent -= ClearCheck;
+            ActivateGameOverPanel();
+        }
     }
 }
