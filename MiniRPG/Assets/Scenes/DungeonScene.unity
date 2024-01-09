@@ -7685,6 +7685,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 306774276099744251, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -54
+      objectReference: {fileID: 0}
+    - target: {fileID: 306774276099744251, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -189
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987729363717012381, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987729363717012381, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987729363717012381, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987729363717012381, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 5663866385758136322, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7719,6 +7743,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663866385758136322, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663866385758136322, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663866385758136322, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663866385758136322, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5663866385758136322, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
@@ -7780,6 +7816,10 @@ PrefabInstance:
     - target: {fileID: 8281597891604303850, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
       propertyPath: m_Name
       value: MiniMap_UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519169734877814038, guid: 667da9f3adbaf473e812130e3d706378, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
